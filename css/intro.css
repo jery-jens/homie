@@ -1,0 +1,14 @@
+.underlined {
+    position: relative;
+}
+
+.underlined::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 2px;
+    height: 10px;
+    z-index: -1;
+    background-color: var(--bright-purple-color);
+    width: 100%;
+}
