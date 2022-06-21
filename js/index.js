@@ -8,8 +8,9 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log(questions, next, prev, pagination)
     
     const changeQuestion = (activeQuestion) => {
-        console.log((questions.length - 1) < activeQuestion, questions.length)
-        if ((questions.length - 1) > activeQuestion) {
+        const max = questions.length - 1;
+        console.log(max, activeQuestion)
+        if (max < activeQuestion) {
             questions.forEach((question, index) => {
                 if (index === activeQuestion) {
                     question.classList.add("active");
