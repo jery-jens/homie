@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const next = document.querySelector(".form-step-nav.next");
     const prev = document.querySelector(".form-step-nav.prev");
     const pagination = document.querySelectorAll(".step");
-    console.log(pagination)
     
     const changeQuestion = (activeQuestion) => {
         const max = questions.length - 1;
