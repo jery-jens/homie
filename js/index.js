@@ -21,6 +21,12 @@ document.addEventListener("DOMContentLoaded", () => {
             next.style.display = "block";
         };
 
+        questions.forEach((question, index) => {
+            if (activeQuestion === index) {
+                console.log(index)
+            }
+        })
+
         // if (max <= activeQuestion) {
         //     questions[activeQuestion]
         //     questions.forEach((question, index) => {
