@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const changeQuestion = (activeQuestion) => {
         const max = questions.length - 1;
         console.log(max, activeQuestion)
-        if (max < activeQuestion) {
+        if (max <= activeQuestion) {
             questions.forEach((question, index) => {
                 if (index === activeQuestion) {
                     question.classList.add("active");
