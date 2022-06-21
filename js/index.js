@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const next = document.querySelector(".form-step-nav.next");
     const prev = document.querySelector(".form-step-nav.prev");
     const pagination = document.querySelectorAll(".step");
+    console.log(pagination)
     
     const changeQuestion = (activeQuestion) => {
         const max = questions.length - 1;
@@ -23,10 +24,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
         questions.forEach((question, index) => {
             if (activeQuestion === index) {
+                console.log(activeQuestion);
                 question.classList.add("active");
                 question.classList.remove("hidden");
                 pagination[activeQuestion].classList.add("active");
             } else {
+                console.log(activeQuestion);
                 question.classList.remove("active");
                 question.classList.add("hidden");
                 pagination[activeQuestion].classList.remove("active");
