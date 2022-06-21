@@ -50,10 +50,12 @@ document.addEventListener("DOMContentLoaded", () => {
     };
     
     next.addEventListener("click", () => {
-        changeQuestion(activeQuestion + 1);
+        activeQuestion = activeQuestion + 1;
+        changeQuestion(activeQuestion);
     });
     
     prev.addEventListener("click", () => {
-        changeQuestion(activeQuestion - 1);
+        activeQuestion = activeQuestion - 1;
+        changeQuestion(activeQuestion);
     });
 });
