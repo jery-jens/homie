@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    var activeQuestion = 0;
+    let activeQuestion = 0;
 
     const questions = document.querySelectorAll(".form-question");
     const next = document.querySelector(".form-step-nav.next");
