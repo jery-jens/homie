@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+// document.addEventListener("DOMContentLoaded", () => {
     let activeQuestion = 0;
 
     const questions = document.querySelectorAll(".form-question");
@@ -56,4 +56,4 @@ document.addEventListener("DOMContentLoaded", () => {
     prev.addEventListener("click", () => {
         changeQuestion(activeQuestion - 1);
     });
-});
+// });
