@@ -22,8 +22,9 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         questions.forEach((question, index) => {
+            console.log(activeQuestion, index)
+
             if (activeQuestion === index) {
-                console.log(index)
             }
         })
 
