@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
             prev.style.display = "none";
         };
 
-        if ((activeQuestion + 1) === max) {
+        if (activeQuestion === max) {
             next.style.display = "none";
         } else {
             next.style.display = "block";
