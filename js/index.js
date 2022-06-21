@@ -27,12 +27,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 console.log(activeQuestion);
                 question.classList.add("active");
                 question.classList.remove("hidden");
-                pagination[activeQuestion].classList.add("active");
+                pagination[index].classList.add("active");
             } else {
                 console.log(activeQuestion);
                 question.classList.remove("active");
                 question.classList.add("hidden");
-                pagination[activeQuestion].classList.remove("active");
+                pagination[index].classList.remove("active");
             };
         });
     };
