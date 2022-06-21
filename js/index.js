@@ -15,24 +15,31 @@ document.addEventListener("DOMContentLoaded", () => {
             prev.style.display = "none";
         };
 
-        if (max <= activeQuestion) {
-            questions.forEach((question, index) => {
-                console.log(index, activeQuestion)
-                if (index === activeQuestion) {
-                    console.log(question, "next");
-                    question.classList.add("active");
-                    question.classList.remove("hidden");
-                    pagination[activeQuestion].classList.add("active");
-                } else {
-                    console.log(question, "prev");
-                    question.classList.remove("active");
-                    question.classList.add("hidden");
-                    pagination[activeQuestion].classList.remove("active");
-                };
-            });
+        if ((activeQuestion + 1) === max) {
+            next.style.display = "none";
         } else {
-            // Submit the form
-        }
+            next.style.display = "block";
+        };
+
+        // if (max <= activeQuestion) {
+        //     questions[activeQuestion]
+        //     questions.forEach((question, index) => {
+        //         console.log(index, activeQuestion)
+        //         if (index === activeQuestion) {
+        //             console.log(question, "next");
+        //             question.classList.add("active");
+        //             question.classList.remove("hidden");
+        //             pagination[activeQuestion].classList.add("active");
+        //         } else {
+        //             console.log(question, "prev");
+        //             question.classList.remove("active");
+        //             question.classList.add("hidden");
+        //             pagination[activeQuestion].classList.remove("active");
+        //         };
+        //     });
+        // } else {
+        //     // Submit the form
+        // }
     };
     
     next.addEventListener("click", () => {
