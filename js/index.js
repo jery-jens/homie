@@ -4,10 +4,17 @@ document.addEventListener("DOMContentLoaded", () => {
      */
 
     window.addEventListener("scroll", () => {
-        const header = document.querySelector(".header");
+        const header = document.querySelector(".main-menu");
         const top  = window.pageYOffset || document.documentElement.scrollTop;
         top >= 65 ? header.classList.add("active") : header.classList.remove("active");
     });
+
+    /**
+     * Tool selector
+     */
+
+    const selector = document.querySelector(".btn-tool-select");
+
 
     /** 
      * Questions 
