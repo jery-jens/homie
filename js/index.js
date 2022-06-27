@@ -100,10 +100,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const regionField = document.getElementById("region");
 
     const registrationTaxField = document.getElementById("registration_tax");
+    registrationTaxField.disabled = true;
 
     priceField.addEventListener("input", (e) => {
         const registrationTax = calcPercentage(e.target.value ?? 0, regionField.value === "flanders" ? 12 : 12.5);
-        console.log(registrationTax);
+        registrationTaxField.value = registrationTax;
     });
 
     // tcoForm.addEventListener("submit", (e) => {
