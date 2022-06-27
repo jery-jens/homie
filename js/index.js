@@ -85,8 +85,10 @@ document.addEventListener("DOMContentLoaded", () => {
         return (amount / 100) * percentage;
     };
 
-    const notarysFee = () => {
-
+    const calcYearlyHypo = (perc, amount, months) => {
+        const oneMonth = 1 + Math.pow(perc, (1/12) - 1);
+        const costOneMonth = amount * oneMonth / Math.pow(1 - (1+perc), months);
+        return costOneMonth * 12;
     };
 
     /**
@@ -98,6 +100,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const newField = document.getElementById("new");
     const priceField = document.getElementById("purchase_price");
     const regionField = document.getElementById("region");
+    const loanAmountField = document.getElementById("loan_amount");
+    const creditTermField = document.getElementById("credit_term");
+    const interestRateField = document.getElementById("interest_rate");
 
     const registrationTaxField = document.getElementById("registration_tax");
     registrationTaxField.disabled = true;
@@ -115,18 +120,23 @@ document.addEventListener("DOMContentLoaded", () => {
     landRegistryField.disabled = true;
     landRegistryField.style.backgroundColor = "transparent";
 
-    const loanAmountField = document.getElementById("loan_amount");
-    loanAmountField.disabled = true;
-    loanAmountField.style.backgroundColor = "transparent";
-
     const notaryMortgageField = document.getElementById("notary_mortgage");
     notaryMortgageField.disabled = true;
     notaryMortgageField.style.backgroundColor = "transparent";
+
+    const mortgageRegistrationField = document.getElementById("mortgage_registration");
+    mortgageRegistrationField.disabled = true;
+    mortgageRegistrationField.style.backgroundColor = "transparent";
 
     const administrationCostsMortgage = document.getElementById("administration_costs_mortgage");
     administrationCostsMortgage.disabled = true;
     administrationCostsMortgage.style.backgroundColor = "transparent";
     administrationCostsMortgage.value = 500;
+
+    const annualMortgageRepayment = document.getElementById("annual_mortgage_repayment");
+    annualMortgageRepayment.disabled = true;
+    annualMortgageRepayment.style.backgroundColor = "transparent";
+    annualMortgageRepayment.value = 500;
 
     priceField.addEventListener("input", (e) => {
         const registrationTax = calcPercentage(e.target.value ?? 0, regionField.value === "flanders" ? 12 : 12.5);
@@ -178,7 +188,16 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     loanAmountField.addEventListener("input", (e) => {
-        loanAmountField.value = ((e.target.value ?? 0 * 1.1) / 100) + ((e.target.value ?? 0 * 1.1) / (100 * 0.3)) + 160.5 + (e.target.value <= 272727 ? 220 : 950);
+        mortgageRegistrationField.value = ((e.target.value ?? 0 * 1.1) / 100) + ((e.target.value ?? 0 * 1.1) / (100 * 0.3)) + 160.5 + (e.target.value <= 272727 ? 220 : 950);
+        annualMortgageRepayment.value = calcYearlyHypo((interestRateField.value ?? 0 / 100), e.target.value ?? 0, (creditTermField.value ?? 5 * 12));
+    });
+
+    interestRateField.addEventListener("input", (e) => {
+        annualMortgageRepayment.value = calcYearlyHypo((interestRateField.value ?? 0 / 100), e.target.value ?? 0, (creditTermField.value ?? 5 * 12));
+    });
+
+    creditTermField.addEventListener("input", (e) => {
+        annualMortgageRepayment.value = calcYearlyHypo((interestRateField.value ?? 0 / 100), e.target.value ?? 0, (creditTermField.value ?? 5 * 12));
     });
 
     tcoForm.addEventListener("submit", (e) => {
