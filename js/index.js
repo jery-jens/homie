@@ -101,9 +101,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const registrationTaxField = document.getElementById("registration_tax");
     registrationTaxField.disabled = true;
+    registrationTaxField.style.backgroundColor = "transparent";
 
     priceField.addEventListener("input", (e) => {
         const registrationTax = calcPercentage(e.target.value ?? 0, regionField.value === "flanders" ? 12 : 12.5);
+        registrationTaxField.value = registrationTax;
+    });
+
+    regionField.addEventListener("input", (e) => {
+        const registrationTax = calcPercentage(priceField.value ?? 0, e.target.value === "flanders" ? 12 : 12.5);
         registrationTaxField.value = registrationTax;
     });
 
