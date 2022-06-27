@@ -143,6 +143,11 @@ document.addEventListener("DOMContentLoaded", () => {
     propertyTaxField.style.backgroundColor = "transparent";
     propertyTaxField.value = 850;
 
+    const insurancesField = document.getElementById("insurances");
+    insurancesField.disabled = true;
+    insurancesField.style.backgroundColor = "transparent";
+    insurancesField.value = 250;
+
     priceField.addEventListener("input", (e) => {
         const registrationTax = calcPercentage(e.target.value ?? 0, regionField.value === "flanders" ? 12 : 12.5);
         const btwNew = calcPercentage(e.target.value ?? 0, 21);
