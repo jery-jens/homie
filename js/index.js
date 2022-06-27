@@ -93,53 +93,71 @@ document.addEventListener("DOMContentLoaded", () => {
      * Submit TCO
      */
 
-    const tcoForm = document.querySelector(".tco-form");
+    // const tcoForm = document.querySelector(".tco-form");
 
-    tcoForm.addEventListener("submit", (e) => {
-        e.preventDefault();
+    const newField = document.getElementById("new");
+    const priceField = document.getElementById("purchase_price");
+    const regionField = document.getElementById("region");
 
-        // About project
-        const isNewProject = document.getElementById("new").value;
-        const price = document.getElementById("purchase_price").value;
-        const region = document.getElementById("purchase_price").value;
+    const registrationTaxField = document.getElementById("registration_tax");
 
-        // About credit
-        const hasCredit = document.getElementById("credit").value;
-        const loanAmount = document.getElementById("loan_amount").value;
-        const creditTerm = document.getElementById("credit_term").value;
-        const interestRate = document.getElementById("interest_rate").value;
-
-        // On purchase
-        const registrationTax = document.getElementById("registration_tax").value;
-        const btw = document.getElementById("btw_new").value;
-        const landRegistry = document.getElementById("land_registry").value;
-        const notaryFees = document.getElementById("notary_fees").value;
-
-        // Credit
-        const mortgageRegistration = document.getElementById("mortgage_registration").value;
-        const notaryMortgage = document.getElementById("notary_mortgage").value;
-        const administrationCostsMortgage = document.getElementById("administration_costs_mortgage").value;
-
-        // After purchase
-        const energyRenovations = document.getElementById("energy_renovations").value;
-        const otherRenovations = document.getElementById("other_renovations").value;
-
-        // Yearly
-        const annualMortgageRepayment = document.getElementById("annual_mortgage_repayment").value;
-        const propertyTax = document.getElementById("property_tax").value;
-        const insurances = document.getElementById("insurances").value;
-        const reparations = document.getElementById("reparations").value;
-        const management = document.getElementById("management").value;
-        const commonCosts = document.getElementById("common_costs").value;
-        
-        window.location = "/tco-calculator/result" + "?new=" + isNewProject + "&price=" + price + "&region=" + region + "&has_credit=" + hasCredit + "&loan_amount=" + loanAmount + "&credit_term=" + creditTerm + "&interest_rate=" + interestRate + "&registration_tax=" + registrationTax + "&btw=" + btw + "&land_registry=" + landRegistry + "&notary_fees=" + notaryFees + "&mortgage_registration=" + mortgageRegistration + "&notary_mortgage=" + notaryMortgage + "&administration_costs_mortgage=" + administrationCostsMortgage + "&energy_renovations=" + energyRenovations + "&other_renovations=" + otherRenovations + "&annual_mortgage_repayment=" + annualMortgageRepayment + "&property_tax=" + propertyTax + "&insurances=" + insurances + "&reparations=" + reparations + "&_management=" + management + "&common_costs=" + commonCosts;
+    registrationTaxField.addEventListener("change", () => {
+        const registrationTax = calcPercentage(priceField.value ?? 0, region.value === "flanders" ? 12 : 12.5);
+        console.log(registrationTax);
     });
 
-    const tcoUrl = new URL(window.location.href);
+    regionField.addEventListener("change", () => {
+        const registrationTax = calcPercentage(priceField.value ?? 0, region.value === "flanders" ? 12 : 12.5);
+        console.log(registrationTax);
+    });
+
+    // tcoForm.addEventListener("submit", (e) => {
+    //     e.preventDefault();
+
+    //     // About project
+    //     const isNewProject = document.getElementById("new").value;
+    //     const price = document.getElementById("purchase_price").value;
+    //     const region = document.getElementById("purchase_price").value;
+
+    //     // About credit
+    //     const hasCredit = document.getElementById("credit").value;
+    //     const loanAmount = document.getElementById("loan_amount").value;
+    //     const creditTerm = document.getElementById("credit_term").value;
+    //     const interestRate = document.getElementById("interest_rate").value;
+
+    //     // On purchase
+    //     const registrationTax = document.getElementById("registration_tax").value;
+    //     const btw = document.getElementById("btw_new").value;
+    //     const landRegistry = document.getElementById("land_registry").value;
+    //     const notaryFees = document.getElementById("notary_fees").value;
+
+    //     // Credit
+    //     const mortgageRegistration = document.getElementById("mortgage_registration").value;
+    //     const notaryMortgage = document.getElementById("notary_mortgage").value;
+    //     const administrationCostsMortgage = document.getElementById("administration_costs_mortgage").value;
+
+    //     // After purchase
+    //     const energyRenovations = document.getElementById("energy_renovations").value;
+    //     const otherRenovations = document.getElementById("other_renovations").value;
+
+    //     // Yearly
+    //     const annualMortgageRepayment = document.getElementById("annual_mortgage_repayment").value;
+    //     const propertyTax = document.getElementById("property_tax").value;
+    //     const insurances = document.getElementById("insurances").value;
+    //     const reparations = document.getElementById("reparations").value;
+    //     const management = document.getElementById("management").value;
+    //     const commonCosts = document.getElementById("common_costs").value;
+        
+    //     window.location = "/tco-calculator/result" + "?new=" + isNewProject + "&price=" + price + "&region=" + region + "&has_credit=" + hasCredit + "&loan_amount=" + loanAmount + "&credit_term=" + creditTerm + "&interest_rate=" + interestRate + "&registration_tax=" + registrationTax + "&btw=" + btw + "&land_registry=" + landRegistry + "&notary_fees=" + notaryFees + "&mortgage_registration=" + mortgageRegistration + "&notary_mortgage=" + notaryMortgage + "&administration_costs_mortgage=" + administrationCostsMortgage + "&energy_renovations=" + energyRenovations + "&other_renovations=" + otherRenovations + "&annual_mortgage_repayment=" + annualMortgageRepayment + "&property_tax=" + propertyTax + "&insurances=" + insurances + "&reparations=" + reparations + "&_management=" + management + "&common_costs=" + commonCosts;
+    // });
     
-    /**
-     * Calculate and show TCO results
-     */
+    // /**
+    //  * Calculate and show TCO results
+    //  */
+
+    //  const tcoUrl = new URL(window.location.href);
+
+     
 
     /**
      * Tool selector
