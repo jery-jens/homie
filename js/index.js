@@ -115,6 +115,10 @@ document.addEventListener("DOMContentLoaded", () => {
     landRegistryField.disabled = true;
     landRegistryField.style.backgroundColor = "transparent";
 
+    const loanAmountField = document.getElementById("loan_amount");
+    loanAmountField.disabled = true;
+    loanAmountField.style.backgroundColor = "transparent";
+
     priceField.addEventListener("input", (e) => {
         const registrationTax = calcPercentage(e.target.value ?? 0, regionField.value === "flanders" ? 12 : 12.5);
         const btwNew = calcPercentage(e.target.value ?? 0, 21);
@@ -160,6 +164,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const registrationTax = calcPercentage(priceField.value ?? 0, e.target.value === "flanders" ? 12 : 12.5);
 
         registrationTaxField.value = registrationTax;
+    });
+
+    loanAmountField.addEventListener("input", (e) => {
+        loanAmountField.value = ((e.target.value ?? 0 * 1.1) / 100) + ((e.target.value ?? 0 * 1.1) / (100 * 0.3)) + 160.5 + (e.target.value <= 272727 ? 220 : 950);
     });
 
     tcoForm.addEventListener("submit", (e) => {
