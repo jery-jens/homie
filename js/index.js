@@ -14,23 +14,40 @@ document.addEventListener("DOMContentLoaded", () => {
      */
 
     const switches = document.querySelectorAll(".switch-checkbox-field");
-    console.log(switches)
+    const formBlocks = document.querySelectorAll(".input-block")
+    const creditRow = document.querySelector(".credit-row")
 
-    switches.forEach((item, index) => {
+    switches.forEach((item) => {
         const wrapper = item.parentElement.parentElement;
         const circle = wrapper.children[0];
         const label = wrapper.parentElement.children[1];
 
-        console.log(wrapper, circle, label);
-
         item.addEventListener("change", () => {
-            console.log(item.checked);
-
             if (item.checked) {
                 wrapper.classList.add("active");
                 circle.classList.add("active");
                 label.classList.add("active");
                 label.innerHTML = "Ja";
+
+                if (formBlocks) {
+                    formBlocks.forEach((block) => {
+                        if (item.classList.contains("new-field")) {
+                            if (block.classList.contains("new")) {
+                                block.classList.remove("hidden");
+                            };
+
+                            if (block.classList.contains("not-new")) {
+                                block.classList.add("hidden");
+                            };
+                        };
+                    }); 
+                };
+                
+                if (creditRow) {
+                    if (item.classList.contains("credit-field")) {
+                        creditRow.classList.remove("hidden");
+                    };
+                };
             } else {
                 wrapper.classList.remove("active");
                 circle.classList.remove("active");
