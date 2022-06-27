@@ -45,12 +45,10 @@ document.addEventListener("DOMContentLoaded", () => {
     
             questions.forEach((question, index) => {
                 if (activeQuestion === index) {
-                    console.log(activeQuestion);
                     question.classList.add("active");
                     question.classList.remove("hidden");
                     pagination[index].classList.add("active");
                 } else {
-                    console.log(activeQuestion);
                     question.classList.remove("active");
                     question.classList.add("hidden");
                     pagination[index].classList.remove("active");
@@ -68,4 +66,18 @@ document.addEventListener("DOMContentLoaded", () => {
             changeQuestion(activeQuestion);
         });
     };
+
+    /**
+     * Switches
+     */
+
+    const switches = document.querySelectorAll(".switch-checkbox-field");
+
+    switches.forEach((item, index) => {
+        const wrapper = item.parentElement.parentElement;
+        const circle = wrapper.children[0];
+        const label = wrapper.parentElement.children[1];
+
+        console.log(wrapper, circle, label)
+    });
 });
