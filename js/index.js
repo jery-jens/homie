@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const switches = document.querySelectorAll(".switch-checkbox-field");
     const formBlocks = document.querySelectorAll(".input-block")
     const creditRow = document.querySelector(".credit-row")
+    const creditFields = document.querySelectorAll(".credit-field");
 
     switches.forEach((item) => {
         const wrapper = item.parentElement.parentElement;
@@ -46,6 +47,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (creditRow) {
                     if (item.classList.contains("credit-field")) {
                         creditRow.classList.remove("hidden");
+
+                        creditFields.forEach((field) => {
+                            field.style.display = "block";
+                        });
                     };
                 };
             } else {
