@@ -22,8 +22,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const circle = wrapper.children[0];
         const label = wrapper.parentElement.children[1];
 
-        console.log(formBlocks, creditRow)
-
         item.addEventListener("change", () => {
             if (item.checked) {
                 wrapper.classList.add("active");
@@ -33,9 +31,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 if (formBlocks) {
                     formBlocks.forEach((block) => {
-                        console.log(item)
                         if (item.classList.contains("new-field")) {
                             if (block.classList.contains("new")) {
+                                console.log(block)
                                 block.classList.remove("hidden");
                             };
 
