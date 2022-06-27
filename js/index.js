@@ -103,55 +103,99 @@ document.addEventListener("DOMContentLoaded", () => {
     registrationTaxField.disabled = true;
     registrationTaxField.style.backgroundColor = "transparent";
 
+    const btwField = document.getElementById("btw_new");
+    btwField.disabled = true;
+    btwField.style.backgroundColor = "transparent";
+
+    const notaryFeesField = document.getElementById("notary_fees");
+    notaryFeesField.disabled = true;
+    notaryFeesField.style.backgroundColor = "transparent";
+
     priceField.addEventListener("input", (e) => {
         const registrationTax = calcPercentage(e.target.value ?? 0, regionField.value === "flanders" ? 12 : 12.5);
+        const btwNew = calcPercentage(e.target.value ?? 0, 21);
+        const administrativeCosts = 1331;
+
+        let notaryFee = 0;
+
+        if (e.target.value >= 0 && e.target.value <= 100000) {
+            notaryFee = 1913;
+        };
+
+        if (e.target.value >= 101000 && e.target.value <= 150000) {
+            notaryFee = 2275;
+        };
+
+        if (e.target.value >= 151000 && e.target.value <= 200000) {
+            notaryFee = 2620;
+        };
+
+        if (e.target.value >= 201000 && e.target.value <= 250000) {
+            notaryFee = 3000;
+        };
+
+        if (e.target.value >= 301000 && e.target.value <= 350000) {
+            notaryFee = 3035;
+        };
+
+        if (e.target.value >= 351000 && e.target.value <= 400000) {
+            notaryFee = 3070;
+        };
+
+        if (e.target.value > 400000) {
+            notaryFee = 3140;
+        };
+
         registrationTaxField.value = registrationTax;
+        btwField.value = btwNew;
+        notaryFeesField.value = notaryFee + administrativeCosts;
     });
 
     regionField.addEventListener("input", (e) => {
         const registrationTax = calcPercentage(priceField.value ?? 0, e.target.value === "flanders" ? 12 : 12.5);
+
         registrationTaxField.value = registrationTax;
     });
 
-    // tcoForm.addEventListener("submit", (e) => {
-    //     e.preventDefault();
+    tcoForm.addEventListener("submit", (e) => {
+        e.preventDefault();
 
-    //     // About project
-    //     const isNewProject = document.getElementById("new").value;
-    //     const price = document.getElementById("purchase_price").value;
-    //     const region = document.getElementById("purchase_price").value;
+        // About project
+        const isNewProject = document.getElementById("new").value;
+        const price = document.getElementById("purchase_price").value;
+        const region = document.getElementById("region").value;
 
-    //     // About credit
-    //     const hasCredit = document.getElementById("credit").value;
-    //     const loanAmount = document.getElementById("loan_amount").value;
-    //     const creditTerm = document.getElementById("credit_term").value;
-    //     const interestRate = document.getElementById("interest_rate").value;
+        // About credit
+        const hasCredit = document.getElementById("credit").value;
+        const loanAmount = document.getElementById("loan_amount").value;
+        const creditTerm = document.getElementById("credit_term").value;
+        const interestRate = document.getElementById("interest_rate").value;
 
-    //     // On purchase
-    //     const registrationTax = document.getElementById("registration_tax").value;
-    //     const btw = document.getElementById("btw_new").value;
-    //     const landRegistry = document.getElementById("land_registry").value;
-    //     const notaryFees = document.getElementById("notary_fees").value;
+        // On purchase
+        const registrationTax = document.getElementById("registration_tax").value;
+        const btw = document.getElementById("btw_new").value;
+        const landRegistry = document.getElementById("land_registry").value;
+        const notaryFees = document.getElementById("notary_fees").value;
 
-    //     // Credit
-    //     const mortgageRegistration = document.getElementById("mortgage_registration").value;
-    //     const notaryMortgage = document.getElementById("notary_mortgage").value;
-    //     const administrationCostsMortgage = document.getElementById("administration_costs_mortgage").value;
+        // Credit
+        const mortgageRegistration = document.getElementById("mortgage_registration").value;
+        const notaryMortgage = document.getElementById("notary_mortgage").value;
+        const administrationCostsMortgage = document.getElementById("administration_costs_mortgage").value;
 
-    //     // After purchase
-    //     const energyRenovations = document.getElementById("energy_renovations").value;
-    //     const otherRenovations = document.getElementById("other_renovations").value;
+        // After purchase
+        const energyRenovations = document.getElementById("energy_renovations").value;
+        const otherRenovations = document.getElementById("other_renovations").value;
 
-    //     // Yearly
-    //     const annualMortgageRepayment = document.getElementById("annual_mortgage_repayment").value;
-    //     const propertyTax = document.getElementById("property_tax").value;
-    //     const insurances = document.getElementById("insurances").value;
-    //     const reparations = document.getElementById("reparations").value;
-    //     const management = document.getElementById("management").value;
-    //     const commonCosts = document.getElementById("common_costs").value;
+        // Yearly
+        const annualMortgageRepayment = document.getElementById("annual_mortgage_repayment").value;
+        const propertyTax = document.getElementById("property_tax").value;
+        const insurances = document.getElementById("insurances").value;
+        const reparations = document.getElementById("reparations").value;
+        const management = document.getElementById("management").value;
+        const commonCosts = document.getElementById("common_costs").value;
         
-    //     window.location = "/tco-calculator/result" + "?new=" + isNewProject + "&price=" + price + "&region=" + region + "&has_credit=" + hasCredit + "&loan_amount=" + loanAmount + "&credit_term=" + creditTerm + "&interest_rate=" + interestRate + "&registration_tax=" + registrationTax + "&btw=" + btw + "&land_registry=" + landRegistry + "&notary_fees=" + notaryFees + "&mortgage_registration=" + mortgageRegistration + "&notary_mortgage=" + notaryMortgage + "&administration_costs_mortgage=" + administrationCostsMortgage + "&energy_renovations=" + energyRenovations + "&other_renovations=" + otherRenovations + "&annual_mortgage_repayment=" + annualMortgageRepayment + "&property_tax=" + propertyTax + "&insurances=" + insurances + "&reparations=" + reparations + "&_management=" + management + "&common_costs=" + commonCosts;
-    // });
+        window.location = "/tco-calculator/result" + "?new=" + isNewProject + "&price=" + price + "&region=" + region + "&has_credit=" + hasCredit + "&loan_amount=" + loanAmount + "&credit_term=" + creditTerm + "&interest_rate=" + interestRate + "&registration_tax=" + registrationTax + "&btw=" + btw + "&land_registry=" + landRegistry + "&notary_fees=" + notaryFees + "&mortgage_registration=" + mortgageRegistration + "&notary_mortgage=" + notaryMortgage + "&administration_costs_mortgage=" + administrationCostsMortgage + "&energy_renovations=" + energyRenovations + "&other_renovations=" + otherRenovations + "&annual_mortgage_repayment=" + annualMortgageRepayment + "&property_tax=" + propertyTax + "&insurances=" + insurances + "&reparations=" + reparations + "&_management=" + management + "&common_costs=" + commonCosts;
+    });
     
     // /**
     //  * Calculate and show TCO results
