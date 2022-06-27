@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const registrationTaxField = document.getElementById("registration_tax");
 
-    registrationTaxField.addEventListener("input", (e) => {
+    priceField.addEventListener("input", (e) => {
         const registrationTax = calcPercentage(e.target.value ?? 0, regionField.value === "flanders" ? 12 : 12.5);
         console.log(registrationTax);
     });
