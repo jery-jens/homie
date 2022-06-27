@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
      * Submit TCO
      */
 
-    // const tcoForm = document.querySelector(".tco-form");
+    const tcoForm = document.querySelector(".tco-form");
 
     const newField = document.getElementById("new");
     const priceField = document.getElementById("purchase_price");
@@ -110,6 +110,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const notaryFeesField = document.getElementById("notary_fees");
     notaryFeesField.disabled = true;
     notaryFeesField.style.backgroundColor = "transparent";
+
+    const landRegistryField = document.getElementById("land_registry");
+    landRegistryField.disabled = true;
+    landRegistryField.style.backgroundColor = "transparent";
 
     priceField.addEventListener("input", (e) => {
         const registrationTax = calcPercentage(e.target.value ?? 0, regionField.value === "flanders" ? 12 : 12.5);
@@ -149,6 +153,7 @@ document.addEventListener("DOMContentLoaded", () => {
         registrationTaxField.value = registrationTax;
         btwField.value = btwNew;
         notaryFeesField.value = notaryFee + administrativeCosts;
+        landRegistryField.value = 240;
     });
 
     regionField.addEventListener("input", (e) => {
