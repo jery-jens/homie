@@ -33,7 +33,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     formBlocks.forEach((block) => {
                         if (item.classList.contains("new-field")) {
                             if (block.classList.contains("new")) {
-                                console.log(block)
                                 block.classList.remove("hidden");
                             };
 
@@ -54,9 +53,43 @@ document.addEventListener("DOMContentLoaded", () => {
                 circle.classList.remove("active");
                 label.classList.remove("active");
                 label.innerHTML = "Nee";
+
+                if (formBlocks) {
+                    formBlocks.forEach((block) => {
+                        if (item.classList.contains("new-field")) {
+                            if (block.classList.contains("new")) {
+                                block.classList.add("hidden");
+                            };
+
+                            if (block.classList.contains("not-new")) {
+                                block.classList.remove("hidden");
+                            };
+                        };
+                    }); 
+                };
+                
+                if (creditRow) {
+                    if (item.classList.contains("credit-field")) {
+                        creditRow.classList.add("hidden");
+                    };
+                };
             };
         });
     });
+
+    /**
+     * Calculate TCO
+     */
+
+    const calcPercentage = (amount, percentage) => {
+        return (amount / 100) * percentage;
+    };
+
+    const notarysFee = () => {
+
+    };
+
+
 
     /**
      * Tool selector
