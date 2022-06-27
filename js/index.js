@@ -100,15 +100,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const regionField = document.getElementById("region");
 
     const registrationTaxField = document.getElementById("registration_tax");
-    console.log(registrationTaxField)
 
-    registrationTaxField.addEventListener("change", () => {
-        const registrationTax = calcPercentage(priceField.value ?? 0, region.value === "flanders" ? 12 : 12.5);
-        console.log(registrationTax);
-    });
-
-    regionField.addEventListener("change", () => {
-        const registrationTax = calcPercentage(priceField.value ?? 0, region.value === "flanders" ? 12 : 12.5);
+    registrationTaxField.addEventListener("input", (e) => {
+        const registrationTax = calcPercentage(e.target.value ?? 0, regionField.value === "flanders" ? 12 : 12.5);
         console.log(registrationTax);
     });
 
@@ -207,14 +201,18 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         };
 
-        next.addEventListener("click", () => {
-            activeQuestion = activeQuestion + 1;
-            changeQuestion(activeQuestion);
-        });
+        if (next) {
+            next.addEventListener("click", () => {
+                activeQuestion = activeQuestion + 1;
+                changeQuestion(activeQuestion);
+            });    
+        };
 
-        prev.addEventListener("click", () => {
-            activeQuestion = activeQuestion - 1;
-            changeQuestion(activeQuestion);
-        });
+        if (prev) {
+            prev.addEventListener("click", () => {
+                activeQuestion = activeQuestion - 1;
+                changeQuestion(activeQuestion);
+            });
+        };
     };
 });
