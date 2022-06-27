@@ -100,6 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const regionField = document.getElementById("region");
 
     const registrationTaxField = document.getElementById("registration_tax");
+    console.log(registrationTaxField)
 
     registrationTaxField.addEventListener("change", () => {
         const registrationTax = calcPercentage(priceField.value ?? 0, region.value === "flanders" ? 12 : 12.5);
