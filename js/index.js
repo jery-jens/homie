@@ -123,6 +123,11 @@ document.addEventListener("DOMContentLoaded", () => {
     notaryMortgageField.disabled = true;
     notaryMortgageField.style.backgroundColor = "transparent";
 
+    const administrationCostsMortgage = document.getElementById("administration_costs_mortgage");
+    administrationCostsMortgage.disabled = true;
+    administrationCostsMortgage.style.backgroundColor = "transparent";
+    administrationCostsMortgage.value = 500;
+
     priceField.addEventListener("input", (e) => {
         const registrationTax = calcPercentage(e.target.value ?? 0, regionField.value === "flanders" ? 12 : 12.5);
         const btwNew = calcPercentage(e.target.value ?? 0, 21);
