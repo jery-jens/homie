@@ -119,9 +119,14 @@ document.addEventListener("DOMContentLoaded", () => {
     loanAmountField.disabled = true;
     loanAmountField.style.backgroundColor = "transparent";
 
+    const notaryMortgageField = document.getElementById("notary_mortgage");
+    notaryMortgageField.disabled = true;
+    notaryMortgageField.style.backgroundColor = "transparent";
+
     priceField.addEventListener("input", (e) => {
         const registrationTax = calcPercentage(e.target.value ?? 0, regionField.value === "flanders" ? 12 : 12.5);
         const btwNew = calcPercentage(e.target.value ?? 0, 21);
+        const notaryMortgage = calcPercentage(e.target.value ?? 0, .4);
         const administrativeCosts = 1331;
 
         let notaryFee = 0;
@@ -158,6 +163,7 @@ document.addEventListener("DOMContentLoaded", () => {
         btwField.value = btwNew;
         notaryFeesField.value = notaryFee + administrativeCosts;
         landRegistryField.value = 240;
+        notaryMortgageField.value = notaryMortgage;
     });
 
     regionField.addEventListener("input", (e) => {
