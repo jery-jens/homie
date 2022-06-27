@@ -95,6 +95,36 @@ document.addEventListener("DOMContentLoaded", () => {
         const costOneMonth = amount * oneMonth / Math.pow(1 - (1+perc), months);
         return costOneMonth * 12;
     };
+    
+    // /**
+    //  * Calculate and show TCO results
+    //  */
+
+    const tcoUrl = new URL(window.location.href);
+
+    const credit = tcoUrl.searchParams.get("credit") ?? 0;
+    const onPurchase = tcoUrl.searchParams.get("on_purchase") ?? 0;
+    const afterPurchase = tcoUrl.searchParams.get("after_purchase") ?? 0;
+    const yearly = tcoUrl.searchParams.get("yearly") ?? 0;
+
+    const totalOut = document.querySelector(".total-out");
+    const totalPurchase = document.querySelector(".total-purchase");
+    const totalExpect = document.querySelector(".total-expect");
+    const totalCredit = document.querySelector(".total-credit");
+    const totalYearly = document.querySelectorAll(".total-yearly-out");
+
+    if (totalOut) {
+       totalOut.innerHTML = "€" + Math.round(credit + onPurchase + afterPurchase);
+       totalExpect.innerHTML = "€" + afterPurchase;
+       totalPurchase.innerHTML = "€" + onPurchase;
+       totalCredit.innerHTML = "€" + credit;
+    };
+
+    if (yearly) {
+       totalYearly.forEach((item) => {
+           item.innerHTML = "€" + yearly;
+       });
+    };
 
     /**
      * Submit TCO
@@ -246,36 +276,6 @@ document.addEventListener("DOMContentLoaded", () => {
         
         window.location = "/tco-calculator/result" + "?credit=" + Math.round(mortgageRegistration ?? 0 + notaryMortgage ?? 0 + administrationCostsMortgage ?? 0) + "&on_purchase=" + Math.round(isNewProject.value ? btw + landRegistry + notaryFees : registrationTax + landRegistry + notaryFees) + "&after_purchase=" + Math.round(energyRenovations ?? 0 + otherRenovations ?? 0) + "&yearly=" + Math.round(annualMortgageRepayment ?? 0 + propertyTax ?? 0 + insurances ?? 0 + reparations ?? 0 + management ?? 0 + commonCosts ?? 0);
     });
-    
-    // /**
-    //  * Calculate and show TCO results
-    //  */
-
-     const tcoUrl = new URL(window.location.href);
-
-     const credit = tcoUrl.searchParams.get("credit") ?? 0;
-     const onPurchase = tcoUrl.searchParams.get("on_purchase") ?? 0;
-     const afterPurchase = tcoUrl.searchParams.get("after_purchase") ?? 0;
-     const yearly = tcoUrl.searchParams.get("yearly") ?? 0;
-
-     const totalOut = document.querySelector(".total-out");
-     const totalPurchase = document.querySelector(".total-purchase");
-     const totalExpect = document.querySelector(".total-expect");
-     const totalCredit = document.querySelector(".total-credit");
-     const totalYearly = document.querySelectorAll(".total-yearly-out");
-
-     if (totalOut) {
-        totalOut.innerHTML = "€" + Math.round(credit + onPurchase + afterPurchase);
-        totalExpect.innerHTML = "€" + afterPurchase;
-        totalPurchase.innerHTML = "€" + onPurchase;
-        totalCredit.innerHTML = "€" + credit;
-     };
-
-     if (yearly) {
-        totalYearly.forEach((item) => {
-            item.innerHTML = "€" + yearly;
-        });
-     };
 
     /**
      * Tool selector
