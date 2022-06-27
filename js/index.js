@@ -220,14 +220,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // About project
         const isNewProject = document.getElementById("new").value;
-        const price = document.getElementById("purchase_price").value;
-        const region = document.getElementById("region").value;
-
-        // About credit
-        const hasCredit = document.getElementById("credit").value;
-        const loanAmount = document.getElementById("loan_amount").value;
-        const creditTerm = document.getElementById("credit_term").value;
-        const interestRate = document.getElementById("interest_rate").value;
 
         // On purchase
         const registrationTax = document.getElementById("registration_tax").value;
@@ -252,7 +244,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const management = document.getElementById("management").value;
         const commonCosts = document.getElementById("common_costs").value;
         
-        window.location = "/tco-calculator/result" + "?credit=" + Math.round(mortgageRegistration ?? 0 + notaryMortgage ?? 0 + administrationCostsMortgage ?? 0) + "&on_purchase=" + Math.round(newField.value ? btw + landRegistry + notaryFees : registrationTax + landRegistry + notaryFees) + "&after_purchase=" + Math.round(energyRenovations ?? 0 + otherRenovations ?? 0) + "&yearly=" + Math.round(annualMortgageRepayment ?? 0 + propertyTax ?? 0 + insurances ?? 0 + reparations ?? 0 + management ?? 0 + commonCosts ?? 0);
+        window.location = "/tco-calculator/result" + "?credit=" + Math.round(mortgageRegistration ?? 0 + notaryMortgage ?? 0 + administrationCostsMortgage ?? 0) + "&on_purchase=" + Math.round(isNewProject.value ? btw + landRegistry + notaryFees : registrationTax + landRegistry + notaryFees) + "&after_purchase=" + Math.round(energyRenovations ?? 0 + otherRenovations ?? 0) + "&yearly=" + Math.round(annualMortgageRepayment ?? 0 + propertyTax ?? 0 + insurances ?? 0 + reparations ?? 0 + management ?? 0 + commonCosts ?? 0);
     });
     
     // /**
