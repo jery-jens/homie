@@ -19,6 +19,18 @@ document.addEventListener("DOMContentLoad", () => {
   const net = document.querySelector(".net");
   const brut = document.querySelector(".brut");
 
+  console.log(net, netRent);
+
   net.innerHTML = "€ " + netRent;
   brut.innerHTML = "€ " + brutRent;
+
+  /**
+   * Get back
+   */
+
+  const backButton = document.querySelector(".back-btn");
+
+  backButton.addEventListener("click", () => {
+    window.location = `/roi-calculator/questionnaire?purchase_price=${purchasePrice}&rent_price=${rentPrice}&region=${region}&one_time_costs=${oneTimeCosts}&amount_time_empty=${amountTimeEmpty}&yearly_costs=${yearlyCosts}&property_tax=${propertyTax}&yearly_amount_insurances=${yearlyAmountInsurances}&bruto_rent=${brutRent}&netto_rent=${netRent}`;
+  });
 });
