@@ -35,10 +35,10 @@ document.addEventListener("DOMContentLoaded", () => {
   rentPrice.value = roiUrl.searchParams.get("rent_price") ?? 0;
   region.value = roiUrl.searchParams.get("region") ?? 0;
   oneTimeCosts.value = roiUrl.searchParams.get("one_time_costs") ?? 0;
-  amountTimeEmpty.value = roiUrl.searchParams.get("amount_time_empty") ?? 0;
+  amountTimeEmpty.value = roiUrl.searchParams.get("amount_time_empty") ?? .5;
   yearlyCosts.value = roiUrl.searchParams.get("yearly_costs") ?? 0;
-  propertyTax.value = roiUrl.searchParams.get("property_tax") ?? 0;
-  yearlyAmountInsurances.value = roiUrl.searchParams.get("yearly_amount_insurances") ?? 0;
+  propertyTax.value = roiUrl.searchParams.get("property_tax") ?? 850;
+  yearlyAmountInsurances.value = roiUrl.searchParams.get("yearly_amount_insurances") ?? 250;
   brutoRent = roiUrl.searchParams.get("bruto_rent") ?? 0;
   nettoRent = roiUrl.searchParams.get("netto_rent") ?? 0;
 
