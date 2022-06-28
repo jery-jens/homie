@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   rentPrice.addEventListener("input", () => calcResults());
   oneTimeCosts.addEventListener("input", () => calcResults());
-  onroerendeVoorheffing.addEventListener("input", () => calcResults());
+  propertyTax.addEventListener("input", () => calcResults());
   yearlyCosts.addEventListener("input", () => calcResults());
   amountTimeEmpty.addEventListener("input", () => calcResults());
   yearlyAmountInsurances.addEventListener("input", () => calcResults());
