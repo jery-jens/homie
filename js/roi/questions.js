@@ -8,6 +8,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const propertyTax = document.getElementById("property_tax");
   const yearlyAmountInsurances = document.getElementById("yearly_amount_insurances");
 
+  /** 
+   * Months field 
+   * */
+
+  amountTimeEmpty.step = "0.1";
+  amountTimeEmpty.min = "0";
+
   /**
    * Some basics
    */
