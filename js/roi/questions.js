@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    window.location = `/tco-calculator/result?purchase_price=${purchasePrice}&rent_price=${rentPrice}&region=${region}&one_time_costs=${oneTimeCosts}&amount_time_empty=${amountTimeEmpty}&yearly_costs=${yearlyCosts}&property_tax=${propertyTax}&yearly_amount_insurances=${yearlyAmountInsurances}&bruto_rent=${brutoRent}&netto_rent=${nettoRent}
+    window.location = `/roi-calculator/result?purchase_price=${purchasePrice}&rent_price=${rentPrice}&region=${region}&one_time_costs=${oneTimeCosts}&amount_time_empty=${amountTimeEmpty}&yearly_costs=${yearlyCosts}&property_tax=${propertyTax}&yearly_amount_insurances=${yearlyAmountInsurances}&bruto_rent=${brutoRent}&netto_rent=${nettoRent}
     ` 
   });
 }); 
