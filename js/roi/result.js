@@ -13,13 +13,12 @@ document.addEventListener("DOMContentLoad", () => {
   const yearlyCosts = roiUrl.searchParams.get("yearly_costs") ?? 0;
   const propertyTax = roiUrl.searchParams.get("property_tax") ?? 0;
   const yearlyAmountInsurances = roiUrl.searchParams.get("yearly_amount_insurances") ?? 0;
-  const brutoRent = roiUrl.searchParams.get("bruto_rent") ?? 0;
-  const nettoRent = roiUrl.searchParams.get("netto_rent") ?? 0;
+  const brutRent = roiUrl.searchParams.get("bruto_rent") ?? 0;
+  const netRent = roiUrl.searchParams.get("netto_rent") ?? 0;
 
+  const net = document.querySelector(".net");
+  const brut = document.querySelector(".brut");
 
-  const totalOut = document.querySelector(".total-out");
-  const totalPurchase = document.querySelector(".total-purchase");
-  const totalExpect = document.querySelector(".total-expect");
-  const totalCredit = document.querySelector(".total-credit");
-  const totalYearly = document.querySelectorAll(".total-yearly-out");
+  net.innerHTML = "€ " + netRent;
+  brut.innerHTML = "€ " + brutRent;
 });
