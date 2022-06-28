@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const calcYearlyHypo = (perc, amount, months) => {
         const oneMonth = 1 + Math.pow(perc, (1/12) - 1);
-        const costOneMonth = amount * oneMonth / Math.pow(1 - (1+perc), months);
+        const costOneMonth = (amount * oneMonth) / Math.pow(1 - (1+perc), months);
         return costOneMonth * 12;
     };
     
