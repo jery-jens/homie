@@ -27,6 +27,22 @@ document.addEventListener("DOMContentLoaded", () => {
   let nettoRent = 0;
 
   /**
+   * Watch if items are recalculated
+   */
+
+  const roiUrl = new URL(window.location.href);
+  purchasePrice.value = roiUrl.searchParams.get("purchase_price") ?? 0;
+  rentPrice.value = roiUrl.searchParams.get("rent_price") ?? 0;
+  region.value = roiUrl.searchParams.get("region") ?? 0;
+  oneTimeCosts.value = roiUrl.searchParams.get("one_time_costs") ?? 0;
+  amountTimeEmpty.value = roiUrl.searchParams.get("amount_time_empty") ?? 0;
+  yearlyCosts.value = roiUrl.searchParams.get("yearly_costs") ?? 0;
+  propertyTax.value = roiUrl.searchParams.get("property_tax") ?? 0;
+  yearlyAmountInsurances.value = roiUrl.searchParams.get("yearly_amount_insurances") ?? 0;
+  brutoRent = roiUrl.searchParams.get("bruto_rent") ?? 0;
+  nettoRent = roiUrl.searchParams.get("netto_rent") ?? 0;
+
+  /**
    * Calculate bruto & netto
    */
 
@@ -67,6 +83,6 @@ document.addEventListener("DOMContentLoaded", () => {
     e.preventDefault();
 
     window.location = `/roi-calculator/result?purchase_price=${purchasePrice.value}&rent_price=${rentPrice.value}&region=${region.value}&one_time_costs=${oneTimeCosts.value}&amount_time_empty=${amountTimeEmpty.value}&yearly_costs=${yearlyCosts.value}&property_tax=${propertyTax.value}&yearly_amount_insurances=${yearlyAmountInsurances.value}&bruto_rent=${brutoRent}&netto_rent=${nettoRent}
-    ` 
+    `
   });
-}); 
+});
