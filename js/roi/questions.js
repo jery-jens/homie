@@ -35,6 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   purchasePrice.addEventListener("input", () => {
     oneTimeCosts.value = Math.round((purchasePrice.value ?? 0 * region.value === "flanders" ? 12.5 : 12) / 100);
+    console.log((purchasePrice * 12.5 / 100))
     calcResults();
   });
 
