@@ -51,7 +51,6 @@ document.addEventListener("DOMContentLoaded", () => {
     nettoRent = Math.round(((rentPrice.value ?? 0 * 12) - (amountTimeEmpty.value ?? .5 * rentPrice.value ?? 0) - yearlyCosts.value ?? 0 - propertyTax.value ?? 0 - yearlyAmountInsurances.value ?? 0) / (purchasePrice.value ?? 0 + oneTimeCosts.value ?? 0) * 100);
   };
 
-
   /**
    * Calculate ROI
    */
