@@ -49,6 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const calcResults = () => {
     brutoRent = Math.round(((rentPrice.value * 12) / (purchasePrice.value + oneTimeCosts.value)) * 100);
     nettoRent = Math.round(((rentPrice.value * 12) - (amountTimeEmpty.value * rentPrice.value) - yearlyCosts.value - propertyTax.value - yearlyAmountInsurances.value) / (purchasePrice.value + oneTimeCosts.value) * 100);
+    console.log(brutoRent, nettoRent)
   };
 
   /**
