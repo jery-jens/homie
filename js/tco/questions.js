@@ -82,8 +82,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const calcYearlyHypo = (perc, amount, months) => {
     const oneMonth = (1 + perc) ** (1 / 12) - 1;
-    console.log(oneMonth.toFixed(4), -Math.abs(months));
     const costOneMonth = amount * oneMonth.toFixed(4) / (1 - (1 + perc) ** -Math.abs(months));
+    console.log(costOneMonth)
     return (costOneMonth * 12).toFixed(2);
   };
 
