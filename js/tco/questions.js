@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const oneMonth = Math.pow(1 + perc, (1 / 12) - 1);
     console.log(perc, amount, months)
     console.log(oneMonth);
-    const costOneMonth = amount * oneMonth / Math.pow(1 - (1 + perc), months);
+    const costOneMonth = amount * oneMonth / Math.pow(1 - (1 + perc.toFixed(4)), months);
     return Math.round(costOneMonth * 12);
   };
 
