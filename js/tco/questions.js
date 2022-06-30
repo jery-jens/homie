@@ -171,11 +171,11 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   interestRateField.addEventListener("input", (e) => {
-    annualMortgageRepayment.value = calcYearlyHypo(((interestRateField.value ?? 0) / 100), e.target.value ?? 0, ((creditTermField.value ?? 5) * 12));
+    annualMortgageRepayment.value = calcYearlyHypo(((interestRateField.value ?? 0) / 100), loanAmountField.value ?? 0, ((creditTermField.value ?? 5) * 12));
   });
 
   creditTermField.addEventListener("input", (e) => {
-    annualMortgageRepayment.value = calcYearlyHypo(((interestRateField.value ?? 0) / 100), e.target.value ?? 0, ((creditTermField.value ?? 5) * 12));
+    annualMortgageRepayment.value = calcYearlyHypo(((interestRateField.value ?? 0) / 100), loanAmountField.value ?? 0, ((creditTermField.value ?? 5) * 12));
   });
 
   tcoForm.addEventListener("submit", (e) => {
