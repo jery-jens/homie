@@ -33,9 +33,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const budget = Number(sessionStorage.getItem("bp_values").budget) ?? 0;
 
     // Session
-    const estatesStorage = JSON.parse(sessionStorage.get("bp_estates")) ?? null;
-    const peopleStorage = JSON.parse(sessionStorage.get("bp_people")) ?? null;
-    const statesStorage = JSON.parse(sessionStorage.get("bp_states")) ?? null;
+    const estatesStorage = JSON.parse(sessionStorage.getItem("bp_estates")) ?? null;
+    const peopleStorage = JSON.parse(sessionStorage.getItem("bp_people")) ?? null;
+    const statesStorage = JSON.parse(sessionStorage.getItem("bp_states")) ?? null;
 
     // Change selected
     const radioActionEstate = (item) => {
@@ -52,6 +52,8 @@ document.addEventListener("DOMContentLoaded", () => {
             selectedEstates.push(item.id);
             btn.classList.add("active");
         };
+
+        sessionStorage.setItem("bp_estates", JSON.stringify(selectedEstates));
 
         if (selectedEstates.length) {
             resultSection.style.display = "block";
