@@ -112,7 +112,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (selectedStates.includes(item.id)) {
             selectedStates.forEach((state, index) => {
-                if (peep === item.id) {
+                if (state === item.id) {
                     selectedStates.splice(index, 1);
                     btn.classList.remove("active");
                 };
@@ -120,6 +120,17 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
             selectedStates.push(item.id);
             btn.classList.add("active");
+        };
+
+        if (selectedEstates.length === 3) {
+            oldTips.style.display = "flex";
+            newTips.style.display = "none";
+        } else if (selectedEstates.includes("new")) {
+            oldTips.style.display = "none";
+            newTips.style.display = "flex";
+        } else {
+            oldTips.style.display = "flex";
+            newTips.style.display = "none";
         };
     };
 
