@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const resultSection = document.querySelector(".result-section");
     const resultTitle = document.querySelector(".result-title");
     const requirementsSection = document.querySelector(".requirements-section");
-    const efficientSection = document.querySelector(".efficient-section");
+    const efficientSections = document.querySelectorAll(".efficient-section");
     const reachableTips = document.querySelector(".when-reachable");
     const noReachableTips = document.querySelector(".when-not-reachable");
 
@@ -39,9 +39,12 @@ document.addEventListener("DOMContentLoaded", () => {
         if (selectedEstates.length) {
             resultSection.style.display = "block";
             requirementsSection.style.display = "block";
+            efficientSections.forEach((section) => {
+                section.style.display = "block";
+            });
 
             window.scrollTo({
-                top: resultSection.getBoundingClientRect().top,
+                top: resultSection.getBoundingClientRect().top + 200,
                 behavior: "smooth",
             });
 
@@ -76,16 +79,19 @@ document.addEventListener("DOMContentLoaded", () => {
                 resultTitle.innerHTML = "niet haalbaar";
                 resultTitle.classList.add("not-green");
                 reachableTips.style.display = "none";
-                noReachableTips.style.display = "block";
+                noReachableTips.style.display = "flex";
             } else {
                 resultTitle.innerHTML = "haalbaar";
                 resultTitle.classList.remove("not-green");
-                reachableTips.style.display = "block";
+                reachableTips.style.display = "flex";
                 noReachableTips.style.display = "none";
             };
         } else {
             resultSection.style.display = "none";
             requirementsSection.style.display = "none";
+            efficientSections.forEach((section) => {
+                section.style.display = "none";
+            });
         };
     };
 
