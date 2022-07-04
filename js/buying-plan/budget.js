@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const radios = [document.getElementById("2"), document.getElementById("3"), document.getElementById("4"), document.getElementById("5")];
 
     // Check if session
-    const session = sessionStorage.getItem("bp_values") ?? null;
+    const session = JSON.parse(sessionStorage.getItem("bp_values")) ?? null;
     if (session) {
         valueField.value = Number(session.value);
         ownAmountField.value = Number(session.ownAmount);
@@ -67,13 +67,13 @@ document.addEventListener("DOMContentLoaded", () => {
             reachableTips.style.display = "flex";
         };
 
-        sessionStorage.setItem("bp_values", {
+        sessionStorage.setItem("bp_values", JSON.stringify({
             "term": termField.value,
             "value": valueField.value,
             "loan": loanField.value,
             "ownAmount": ownAmountField.value,
             "selectedRen": selectedRen,
             "budget": Math.round(Number(ownAmountField.value) + Number(loanField.value))
-        });
+        }));
     });
 });
