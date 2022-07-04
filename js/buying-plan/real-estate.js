@@ -10,6 +10,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const vacationHouse = document.getElementById("vacationhouse");
 
     house.addEventListener("click", () => {
+        if (house.checked) {
+            house.checked = false;
+        }
         console.log(house.checked)
         house.checked ? house.checked = true : house.checked = false;
     });
