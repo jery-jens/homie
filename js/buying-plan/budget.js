@@ -20,9 +20,26 @@ document.addEventListener("DOMContentLoaded", () => {
     // Check if session
     const session = JSON.parse(sessionStorage.getItem("bp_values")) ?? null;
     if (session) {
+        // Fill in fields
         valueField.value = Number(session.value);
         ownAmountField.value = Number(session.ownAmount);
         loanField.value = Number(session.loan);
+        selectedRen = Number(session.selectedRen);
+
+        const rules = [
+            ownAmountField.value > ((valueField.value) / 100 * 20),
+            loanField.value < ((valueField.value) / 100 * 80),
+            selectedRen > 4,
+        ];
+
+        rules.forEach((rule) => {
+            if (!rule) reachable = false;
+        });
+
+        console.log(rules);
+
+        // Show sections
+        resultSection.style.display = "block";
     };
 
     // When status changes
