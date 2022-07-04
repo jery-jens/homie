@@ -137,8 +137,11 @@ document.addEventListener("DOMContentLoaded", () => {
         } else if (selectedStates.includes("new")) {
             oldTips.style.display = "none";
             newTips.style.display = "flex";
-        } else {
+        } else if (selectedEstates.includes("old")) {
             oldTips.style.display = "flex";
+            newTips.style.display = "none";
+        } else {
+            oldTips.style.display = "none";
             newTips.style.display = "none";
         };
     };
@@ -285,8 +288,11 @@ document.addEventListener("DOMContentLoaded", () => {
         } else if (selectedStates.includes("new")) {
             oldTips.style.display = "none";
             newTips.style.display = "flex";
-        } else {
+        } else if (selectedEstates.includes("old")) {
             oldTips.style.display = "flex";
+            newTips.style.display = "none";
+        } else {
+            oldTips.style.display = "none";
             newTips.style.display = "none";
         };
     };
