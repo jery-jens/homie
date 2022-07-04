@@ -12,3 +12,7 @@
     background-color: #5C15F1;
     width: 100%;
 }
+
+.main-menu {
+    transition: ease-in-out .5s;
+}
