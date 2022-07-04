@@ -13,12 +13,18 @@ document.addEventListener("DOMContentLoaded", () => {
         const termField = document.getElementById("term");
 
         // Radio
+        let selectedRen = 2;
         const radios = [document.getElementById("2"), document.getElementById("3"), document.getElementById("4"), document.getElementById("5")];
 
-        console.log(radios);
+        radios.forEach((radio) => {
+            if (radio.checked) {
+                selectedRen = radio.value;
+            };
+
+            console.log(radio.checked, radio.value);
+        });
 
         let reachable = true;
-        let selectedRen = 2;
 
         const rules = [
             ownAmountField.value > (valueField.value) / 100 * 20,
