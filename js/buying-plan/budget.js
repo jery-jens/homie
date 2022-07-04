@@ -42,8 +42,8 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!reachable) {
             resultTitle.innerHTML = "niet haalbaar";
             resultTitle.classList.add("not-green");
-            nonReachableTips.style.display = "block";
-            reachableTips.style.display = "flex";
+            nonReachableTips.style.display = "flex";
+            reachableTips.style.display = "none";
         } else {
             resultTitle.innerHTML = "haalbaar";
             resultTitle.classList.remove("not-green");
