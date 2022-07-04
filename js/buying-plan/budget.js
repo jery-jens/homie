@@ -51,6 +51,6 @@ document.addEventListener("DOMContentLoaded", () => {
             reachableTips.style.display = "flex";
         };
 
-        localStorage.setItem("budget", Math.round(ownAmountField.value + loanField.value));
+        localStorage.setItem("budget", Math.round(Number(ownAmountField.value) + Number(loanField.value)));
     });
 });
