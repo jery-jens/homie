@@ -31,7 +31,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Active state on correct radio button
         radios.forEach((radio) => {
-            console.log(radio.id, selectedRen)
             if (Number(radio.id) === selectedRen) {
                 radio.checked = true;
             };
