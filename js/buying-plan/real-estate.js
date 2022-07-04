@@ -6,9 +6,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const efficientSections = document.querySelectorAll(".efficient-section");
     const reachableTips = document.querySelector(".when-reachable");
     const noReachableTips = document.querySelector(".when-not-reachable");
+    const newTips = document.querySelector(".when-new");
+    const oldTips = document.querySelector(".when-old");
 
     // Arrays
     const selectedEstates = [];
+    const selectedPeople = [];
+    const selectedStates = [];
 
     // Type of estate
     const house = document.getElementById("house");
@@ -16,12 +20,20 @@ document.addEventListener("DOMContentLoaded", () => {
     const assistantHouse = document.getElementById("assistanthouse");
     const studentHouse = document.getElementById("studenthouse");
     const vacationHouse = document.getElementById("vacationhouse");
+    const oldHouse = document.getElementById("old");
+    const newHouse = document.getElementById("new");
+    
+    // Type of people
+    const youth = document.getElementById("youth");
+    const students = document.getElementById("students");
+    const families = document.getElementById("families");
+    const seniors = document.getElementById("seniors");
 
     // Variables
     const budget = Number(localStorage.getItem("budget")) || 0;
 
     // Change selected
-    const radioAction = (item) => {
+    const radioActionEstate = (item) => {
         const btn = item.children[0];
 
         if (selectedEstates.includes(item.id)) {
@@ -95,23 +107,49 @@ document.addEventListener("DOMContentLoaded", () => {
         };
     };
 
+    const radioActionState = (item) => {        
+        if (item.id === "new") {
+            newHouse.children[0].classList.add("active");
+            oldHouse.children[0].classList.remove("active");
+
+            newTips.style.display = "flex";
+            oldTips.style.display = "none";
+        } else {
+            newHouse.children[0].classList.remove("active");
+            oldHouse.children[0].classList.add("active");
+
+            newTips.style.display = "none";
+            oldTips.style.display = "flex";
+        };
+    };
+
+    // Events on types of estate
     house.addEventListener("click", () => {
-        radioAction(house);
+        radioActionEstate(house);
     });
 
     appartment.addEventListener("click", () => {
-        radioAction(appartment);
+        radioActionEstate(appartment);
     });
 
     assistantHouse.addEventListener("click", () => {
-        radioAction(assistantHouse);
+        radioActionEstate(assistantHouse);
     });  
 
     studentHouse.addEventListener("click", () => {
-        radioAction(studentHouse);
+        radioActionEstate(studentHouse);
     });
 
     vacationHouse.addEventListener("click", () => {
-        radioAction(vacationHouse);
+        radioActionEstate(vacationHouse);
+    });
+
+    // Events on states of estates
+    oldHouse.addEventListener("click", () => {
+        radioActionState(oldHouse);
+    });
+
+    newHouse.addEventListener("click", () => {
+        radioActionState(newHouse);
     });
 });
