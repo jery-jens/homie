@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         resultSection.style.display = "block";
-        form.style.display = "block";
+        form.setAttribute("style", "display: block !important");
 
         if (!reachable) {
             resultTitle.innerHTML = "niet haalbaar";
