@@ -26,6 +26,15 @@ document.addEventListener("DOMContentLoaded", () => {
         loanField.value = Number(session.loan);
         selectedRen = Number(session.selectedRen);
 
+        // Active state on correct radio button
+        radios.forEach((radio) => {
+            if (Number(radio.id) === selectedRen) {
+                radio.checked = true;
+            };
+        });
+
+        let reachable = true;
+
         const rules = [
             ownAmountField.value > ((valueField.value) / 100 * 20),
             loanField.value < ((valueField.value) / 100 * 80),
@@ -36,7 +45,17 @@ document.addEventListener("DOMContentLoaded", () => {
             if (!rule) reachable = false;
         });
 
-        console.log(rules);
+        if (!reachable) {
+            resultTitle.innerHTML = "niet haalbaar";
+            resultTitle.classList.add("not-green");
+            nonReachableTips.style.display = "flex";
+            reachableTips.style.display = "none";
+        } else {
+            resultTitle.innerHTML = "haalbaar";
+            resultTitle.classList.remove("not-green");
+            nonReachableTips.style.display = "none";
+            reachableTips.style.display = "flex";
+        };
 
         // Show sections
         resultSection.style.display = "block";
