@@ -43,8 +43,8 @@ document.addEventListener("DOMContentLoaded", () => {
         let reachable = true;
 
         const rules = [
-            ownAmountField.value > (valueField.value) / 100 * 20,
-            loanField.value < (valueField.value) / 100 * 80,
+            ownAmountField.value > ((valueField.value) / 100 * 20),
+            loanField.value < ((valueField.value) / 100 * 80),
             selectedRen > 4,
         ];
 
