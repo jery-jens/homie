@@ -19,11 +19,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Check if session
     const session = JSON.parse(sessionStorage.getItem("bp_values")) ?? null;
+    const statusSession = sessionStorage.getItem("bp_status") ?? null;
+
     if (session) {
         // Fill in fields
         valueField.value = Number(session.value);
         ownAmountField.value = Number(session.ownAmount);
         loanField.value = Number(session.loan);
+        termField.value = session.term;
         selectedRen = Number(session.selectedRen);
 
         // Active state on correct radio button
@@ -59,6 +62,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Show sections
         resultSection.style.display = "block";
+    };
+
+    if (statusSession) {
+        statusField.value = statusSession;
     };
 
     // When status changes
