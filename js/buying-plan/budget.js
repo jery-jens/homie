@@ -2,6 +2,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const form = document.querySelector(".budget-form");
     const resultSection = document.querySelector(".result-section");
     const resultTitle = document.querySelector(".result-title");
+    const reachableTips = document.querySelector(".when-reachable");
+    const nonReachableTips = document.querySelector(".when-not-reachable");
 
     form.addEventListener("submit", (e) => {
         e.preventDefault();
@@ -30,8 +32,6 @@ document.addEventListener("DOMContentLoaded", () => {
             selectedRen > 4,
         ];
 
-        console.log(rules)
-
         rules.forEach((rule) => {
             if (!rule) reachable = false;
         });
@@ -42,9 +42,13 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!reachable) {
             resultTitle.innerHTML = "niet haalbaar";
             resultTitle.classList.add("not-green");
+            nonReachableTips.style.display = "block";
+            reachableTips.style.display = "none";
         } else {
             resultTitle.innerHTML = "haalbaar";
             resultTitle.classList.remove("not-green");
+            nonReachableTips.style.display = "none";
+            reachableTips.style.display = "block";
         };
     });
 });
