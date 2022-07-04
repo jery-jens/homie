@@ -1,22 +1,38 @@
 document.addEventListener("DOMContentLoaded", () => {
+    // Elements
     const form = document.querySelector(".budget-form");
     const resultSection = document.querySelector(".result-section");
     const resultTitle = document.querySelector(".result-title");
     const reachableTips = document.querySelector(".when-reachable");
     const nonReachableTips = document.querySelector(".when-not-reachable");
 
+    // Fields
+    const valueField = document.getElementById("value");
+    const ownAmountField = document.getElementById("own_amount");
+    const loanField = document.getElementById("loan");
+    const termField = document.getElementById("term");
+    const statusField = document.getElementById("status");
+
+    // Radio
+    let selectedRen = 2;
+    const radios = [document.getElementById("2"), document.getElementById("3"), document.getElementById("4"), document.getElementById("5")];
+
+    // Check if session
+    const session = sessionStorage.getItem("bp_values") ?? null;
+    if (session) {
+        valueField.value = Number(session.value);
+        ownAmountField.value = Number(session.ownAmount);
+        loanField.value = Number(session.loan);
+    };
+
+    // When status changes
+    statusField.addEventListener("input", () => {
+        sessionStorage.setItem("bp_status", statusField.value);
+    });
+
+    // Submit form
     form.addEventListener("submit", (e) => {
         e.preventDefault();
-
-        // Fields
-        const valueField = document.getElementById("value");
-        const ownAmountField = document.getElementById("own_amount");
-        const loanField = document.getElementById("loan");
-        const termField = document.getElementById("term");
-
-        // Radio
-        let selectedRen = 2;
-        const radios = [document.getElementById("2"), document.getElementById("3"), document.getElementById("4"), document.getElementById("5")];
 
         radios.forEach((radio) => {
             if (radio.checked) {
@@ -51,6 +67,13 @@ document.addEventListener("DOMContentLoaded", () => {
             reachableTips.style.display = "flex";
         };
 
-        localStorage.setItem("budget", Math.round(Number(ownAmountField.value) + Number(loanField.value)));
+        sessionStorage.setItem("bp_values", {
+            "term": termField.value,
+            "value": valueField.value,
+            "loan": loanField.value,
+            "ownAmount": ownAmountField.value,
+            "selectedRen": selectedRen,
+            "budget": Math.round(Number(ownAmountField.value) + Number(loanField.value))
+        });
     });
 });

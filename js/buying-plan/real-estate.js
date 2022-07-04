@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const seniors = document.getElementById("seniors");
 
     // Variables
-    const budget = Number(localStorage.getItem("budget")) || 0;
+    const budget = Number(sessionStorage.getItem("budget")) || 0;
 
     // Change selected
     const radioActionEstate = (item) => {
