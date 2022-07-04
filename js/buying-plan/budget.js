@@ -50,5 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
             nonReachableTips.style.display = "none";
             reachableTips.style.display = "flex";
         };
+
+        localStorage.setItem("budget", Math.round(ownAmountField.value + loanField.value));
     });
 });
