@@ -129,10 +129,12 @@ document.addEventListener("DOMContentLoaded", () => {
             btn.classList.add("active");
         };
 
-        if (selectedEstates.length === 3) {
+        sessionStorage.setItem("bp_states", JSON.stringify(selectedStates));
+
+        if (selectedStates.length === 3) {
             oldTips.style.display = "flex";
             newTips.style.display = "none";
-        } else if (selectedEstates.includes("new")) {
+        } else if (selectedStates.includes("new")) {
             oldTips.style.display = "none";
             newTips.style.display = "flex";
         } else {
@@ -155,6 +157,8 @@ document.addEventListener("DOMContentLoaded", () => {
             selectedPeople.push(item.id);
             btn.classList.add("active");
         };
+
+        sessionStorage.setItem("bp_people", JSON.stringify(selectedPeople));
     };
 
     // Events on types of estate
@@ -265,5 +269,34 @@ document.addEventListener("DOMContentLoaded", () => {
                 section.style.display = "none";
             });
         };
+    };
+
+    if (statesStorage) {
+        selectedStates = statesStorage;
+
+        selectedStates.forEach((state) => {
+            const selectedState = document.getElementById(state);
+            selectedState.children[0].classList.add("active");
+        });
+
+        if (selectedStates.length === 3) {
+            oldTips.style.display = "flex";
+            newTips.style.display = "none";
+        } else if (selectedStates.includes("new")) {
+            oldTips.style.display = "none";
+            newTips.style.display = "flex";
+        } else {
+            oldTips.style.display = "flex";
+            newTips.style.display = "none";
+        };
+    };
+
+    if (peopleStorage) {
+        selectedPeople = peopleStorage;
+
+        selectedPeople.forEach((peep) => {
+            const selectedPeep = document.getElementById(peep);
+            selectedPeep.children[0].classList.add("active");
+        });
     };
 });
