@@ -43,12 +43,12 @@ document.addEventListener("DOMContentLoaded", () => {
             resultTitle.innerHTML = "niet haalbaar";
             resultTitle.classList.add("not-green");
             nonReachableTips.style.display = "block";
-            reachableTips.style.display = "none";
+            reachableTips.style.display = "flex";
         } else {
             resultTitle.innerHTML = "haalbaar";
             resultTitle.classList.remove("not-green");
             nonReachableTips.style.display = "none";
-            reachableTips.style.display = "block";
+            reachableTips.style.display = "flex";
         };
     });
 });
