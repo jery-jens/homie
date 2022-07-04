@@ -4,6 +4,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const resultTitle = document.querySelector(".result-title");
     const requirementsSection = document.querySelector(".requirements-section");
     const efficientSection = document.querySelector(".efficient-section");
+    const reachableTips = document.querySelector(".when-reachable");
+    const noReachableTips = document.querySelector(".when-not-reachable");
 
     // Arrays
     const selectedEstates = [];
@@ -37,6 +39,11 @@ document.addEventListener("DOMContentLoaded", () => {
         if (selectedEstates.length) {
             resultSection.style.display = "block";
 
+            window.scrollTo({
+                top: resultSection.getBoundingClientRect().top,
+                behavior: "smooth",
+            });
+
             // Calculate reachability
             let reachability = true;
 
@@ -64,14 +71,16 @@ document.addEventListener("DOMContentLoaded", () => {
                 };
             });
 
-            console.log(reachability, budget);
-
             if (!reachability) {
                 resultTitle.innerHTML = "niet haalbaar";
                 resultTitle.classList.add("not-green");
+                reachableTips.style.display = "none";
+                noReachableTips.style.display = "block";
             } else {
                 resultTitle.innerHTML = "haalbaar";
                 resultTitle.classList.remove("not-green");
+                reachableTips.style.display = "block";
+                noReachableTips.style.display = "none";
             };
         };
     };
