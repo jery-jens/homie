@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const reachableTips = document.querySelector(".when-reachable");
     const noReachableTips = document.querySelector(".when-not-reachable");
     const newTips = document.querySelector(".when-new");
-    const oldTips = document.querySelector(".when-old");
+    const oldTips = document.querySelector(".when-both");
 
     // Arrays
     const selectedEstates = [];
@@ -107,19 +107,35 @@ document.addEventListener("DOMContentLoaded", () => {
         };
     };
 
-    const radioActionState = (item) => {        
-        if (item.id === "new") {
-            newHouse.children[0].classList.add("active");
-            oldHouse.children[0].classList.remove("active");
+    const radioActionState = (item) => {
+        const btn = item.children[0];
 
-            newTips.style.display = "flex";
-            oldTips.style.display = "none";
+        if (selectedStates.includes(item.id)) {
+            selectedStates.forEach((state, index) => {
+                if (peep === item.id) {
+                    selectedStates.splice(index, 1);
+                    btn.classList.remove("active");
+                };
+            });
         } else {
-            newHouse.children[0].classList.remove("active");
-            oldHouse.children[0].classList.add("active");
+            selectedStates.push(item.id);
+            btn.classList.add("active");
+        };
+    };
 
-            newTips.style.display = "none";
-            oldTips.style.display = "flex";
+    const radioActionPeople = (item) => {
+        const btn = item.children[0];
+
+        if (selectedPeople.includes(item.id)) {
+            selectedPeople.forEach((peep, index) => {
+                if (peep === item.id) {
+                    selectedPeople.splice(index, 1);
+                    btn.classList.remove("active");
+                };
+            });
+        } else {
+            selectedPeople.push(item.id);
+            btn.classList.add("active");
         };
     };
 
@@ -151,5 +167,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
     newHouse.addEventListener("click", () => {
         radioActionState(newHouse);
+    });
+
+    // Events on types of people
+    students.addEventListener("click", () => {
+        radioActionPeople(students);
+    });
+
+    youth.addEventListener("click", () => {
+        radioActionPeople(youth);
+    });
+
+    seniors.addEventListener("click", () => {
+        radioActionPeople(seniors);
+    });
+
+    families.addEventListener("click", () => {
+        radioActionPeople(families);
     });
 });
