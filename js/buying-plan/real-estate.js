@@ -15,20 +15,17 @@ document.addEventListener("DOMContentLoaded", () => {
     // Change selected
     const radioAction = (item) => {
         const btn = item.children[0];
-        const wrapper = item.parentElement;
 
         if (selectedEstates.includes(item.id)) {
             selectedEstates.forEach((estate, index) => {
                 if (estate === item.id) {
                     selectedEstates.splice(index, 1);
                     btn.classList.remove("active");
-                    wrapper.classList.remove("active");
                 };
             });
         } else {
             selectedEstates.push(item.id);
             btn.classList.add("active");
-            wrapper.classList.add("active");
         };
 
         if (selectedEstates.length) {
@@ -39,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
     house.addEventListener("click", () => {
         radioAction(house);
     });
-    
+
     appartment.addEventListener("click", () => {
         radioAction(appartment);
     });
