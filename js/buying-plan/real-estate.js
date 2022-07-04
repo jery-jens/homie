@@ -28,6 +28,10 @@ document.addEventListener("DOMContentLoaded", () => {
             selectedEstates.push(item.id);
             btn.classList.add("active");
         };
+
+        if (selectedEstates.length) {
+            resultSection.style.display = "block";
+        };
     };
 
     house.addEventListener("click", () => {
