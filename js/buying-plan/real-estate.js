@@ -9,5 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const studentHouse = document.getElementById("studenthouse");
     const vacationHouse = document.getElementById("vacationhouse");
 
-    console.log(house, appartment, assistantHouse, studentHouse, vacationHouse);
+    house.addEventListener("click", () => {
+        house.checked ? house.checked = false : house.checked = true;
+    });
 });
