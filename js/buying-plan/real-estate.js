@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
     // Sections
-    const resultSection = document.querySelector(".student-section");
+    const resultSection = document.querySelector(".result-section");
+    const requirementsSection = document.querySelector(".requirements-section");
+    const efficientSection = document.querySelector(".efficient-section");
 
     // Arrays
     const selectedEstates = [];
