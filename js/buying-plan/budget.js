@@ -18,10 +18,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         radios.forEach((radio) => {
             if (radio.checked) {
-                selectedRen = radio.value;
+                selectedRen = Number(radio.value);
             };
-
-            console.log(radio.checked, radio.value);
         });
 
         let reachable = true;
@@ -29,16 +27,24 @@ document.addEventListener("DOMContentLoaded", () => {
         const rules = [
             ownAmountField.value > (valueField.value) / 100 * 20,
             loanField.value < (valueField.value) / 100 * 80,
+            selectedRen > 4,
         ];
+
+        console.log(rules)
 
         rules.forEach((rule) => {
             if (!rule) reachable = false;
         });
 
         resultSection.style.display = "block";
+        form.style.display = "block";
 
         if (!reachable) {
-
+            resultTitle.innerHTML = "niet haalbaar";
+            resultTitle.classList.add("not-green");
+        } else {
+            resultTitle.innerHTML = "haalbaar";
+            resultTitle.classList.remove("not-green");
         };
     });
 });
