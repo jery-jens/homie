@@ -21,10 +21,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const infoBtn = document.querySelector(".btn-info");
     const infoPopup = document.querySelector(".popup-tool-info");
+    const closeInfoPopup = document.querySelector(".popup-header-close");
 
-    if (infoBtn && infoPopup) {
+    if (infoBtn && infoPopup && closeInfoPopup) {
         infoBtn.addEventListener("click", () => {
-            console.log("jaaaa!");
+            infoPopup.style.display = "flex";
+        });
+
+        closeInfoPopup.addEventListener("click", () => {
+            infoPopup.style.display = "none";
         });
     };
 });
