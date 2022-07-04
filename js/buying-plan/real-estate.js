@@ -38,6 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (selectedEstates.length) {
             resultSection.style.display = "block";
+            requirementsSection.style.display = "block";
 
             window.scrollTo({
                 top: resultSection.getBoundingClientRect().top,
@@ -82,6 +83,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 reachableTips.style.display = "block";
                 noReachableTips.style.display = "none";
             };
+        } else {
+            resultSection.style.display = "none";
+            requirementsSection.style.display = "none";
         };
     };
 
