@@ -13,19 +13,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const changePagination = () => {
         const max = questions.length - 1;
 
-        pagination.forEach((step, index) => {
-            if (activeQuestion === 0) {
-                pagination[0].classList.add("active");
-                console.log("active", activeQuestion);
-            } else if (activeQuestion === 1) {
-                console.log("active", activeQuestion);
-                pagination[1].classList.add("active");
-            } else if (activeQuestion >= 2 && activeQuestion <= (max - 1)) {
-                console.log("center", activeQuestion);
-            } else {
-                step.classList.remove("active");
-            }
-        });
+        if (activeQuestion === 0) {
+            pagination[0].classList.add("active");
+            console.log("first", activeQuestion);
+        } else if (activeQuestion === 1) {
+            console.log("second", activeQuestion);
+            pagination[1].classList.add("active");
+        } else if (activeQuestion >= 2 && activeQuestion <= (max - 3)) {
+            console.log("center", activeQuestion);
+        } else if (activeQuestion === (max - 2)) {
+            console.log("fourth", activeQuestion);
+        } else if (activeQuestion === (max - 1)) {
+            console.log("fifth", activeQuestion);
+        };
     };
 
     changePagination();
