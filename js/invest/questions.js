@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
             };
 
             if (activeQuestion === (max + 1)) {
-                console.log("yes!")
+                submitForm();
             };
 
             questions.forEach((question, index) => {
@@ -199,5 +199,7 @@ document.addEventListener("DOMContentLoaded", () => {
             "yes": document.getElementById("house_yes"),
             "no": document.getElementById("house_no"),
         };
+
+        window.location = `/invest-test/result`;
     };
 });
