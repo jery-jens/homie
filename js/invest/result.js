@@ -8,8 +8,8 @@ document.addEventListener("DOMContentLoaded", () => {
     interestRate.value = 2.5;
 
     // Variables
-    let interestRateMonth = 1 + interestRate.value ** (1/12) - 1
-    console.log(interestRateMonth);
+    let interestRateMonth = 1 + interestRate.value ** (1/12) - 1;
+    let averageLoanAmount = 0;
 
     // Parameters
     const url = new URL(window.location.href);
@@ -18,7 +18,20 @@ document.addEventListener("DOMContentLoaded", () => {
     const carLoans = Number(url.searchParams.get("car_loans") ?? 0);
     const alimony = Number(url.searchParams.get("alimony") ?? 0);
     const monthlyPayment = (netIncome - (otherLoans + carLoans + alimony)) / 100 * 40;
-    console.log(monthlyPayment);
+
+    // Actions
+    const loanEvent = () => {
+        interestRateMonth = 1 + interestRate.value ** (1/12) - 1;
+        averageLoanAmount = ((1 - (1 + interestRateMonth) ** -Math.abs(loanTerm * 12)) / interestRateMonth) * monthlyPayment;
+        console.log(interestRateMonth, averageLoanAmount);
+    };
 
     // Field listeners
+    loanTerm.addEventListener("input", () => {
+        loanEvent();
+    });
+
+    interestRate.addEventListener("input", () => {
+        loanEvent();
+    });
 });
