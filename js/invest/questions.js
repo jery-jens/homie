@@ -29,11 +29,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (activeQuestion === index) {
                     question.classList.add("active");
                     question.classList.remove("hidden");
-                    pagination[index].classList.add("active");
+                    // pagination[index].classList.add("active");
                 } else {
                     question.classList.remove("active");
                     question.classList.add("hidden");
-                    pagination[index].classList.remove("active");
+                    // pagination[index].classList.remove("active");
                 };
             });
         };
