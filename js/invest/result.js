@@ -25,6 +25,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const rentTo = url.searchParams.get("rent_to") ?? "";
     const rentLength = url.searchParams.get("rent_length") ?? "";
     const time = url.searchParams.get("time") ?? "daily";
+    const waiting = url.searchParams.get("waiting") ?? "yes";
+    const tech = url.searchParams.get("tech") ?? "0";
 
     // Actions
     const loanEvent = () => {
@@ -99,10 +101,77 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelector(".type-estate").innerHTML = typeEstate === "house" ? "Huis" : typeEstate === "vacationhouse" ? "Vakantiewoning" : typeEstate === "studenthouse" ? "Studentenwoning" : typeEstate === "assistanthouse" ? "Assistentiewoning": "Appartement/studio";
     };
 
+    const ageBuildingEvent = () => {
+        let oldTimePerc = 0;
+        let newTimePerc = 0;
+
+        if (time === "daily") {
+            oldTimePerc = 100;
+            newTimePerc = 0;
+        };
+
+        if (time === "weekly") {
+            oldTimePerc = 50;
+            newTimePerc = 50;
+        };
+
+        if (time === "monthly") {
+            oldTimePerc = 50;
+            newTimePerc = 50;
+        };
+
+        if (time === "yearly") {
+            oldTimePerc = 0;
+            newTimePerc = 100;
+        };
+
+        let oldWaitingTime = 0;
+        let newWaitingTime = 0;
+
+        if (waiting === "yes") {
+            oldWaitingTime = 100;
+            newWaitingTime = 0;
+        };
+
+        if (waiting === "no") {
+            oldWaitingTime = 0;
+            newWaitingTime = 100;
+        };
+
+        let oldTech = 0;
+        let newTech = 0;
+
+        if (tech === "0") {
+            oldTech = 100;
+            newTech = 0;
+        };
+
+        if (tech === "1") {
+            oldTech = 50;
+            newTech = 50;
+        };
+
+        if (tech === "2") {
+            oldTech = 50;
+            newTech = 50;
+        };
+
+        if (tech === "3") {
+            oldTech = 0;
+            newTech = 100;
+        };
+
+        const avgOld = (oldTech + oldTimePerc + oldWaitingTime) / 3;
+        const avgNew = (newTech + newTimePerc + newWaitingTime) / 3;
+
+        console.log(avgOld, avgNew);
+    };
+
     // Default actions
     loanEvent();
     riskToleranceEvent();
     typeEstateEvent();
+    ageBuildingEvent();
 
     // Field listeners
     loanTerm.addEventListener("input", () => {
