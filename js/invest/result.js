@@ -31,6 +31,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const renovationTime = url.searchParams.get("renovate") ?? "yes";
     const renovationExperience = url.searchParams.get("renovation_exp") ?? "0";
     const alreadyHouse = url.searchParams.get("already_house") ?? "yes";
+    const orderly = url.searchParams.get("orderly") ?? "0";
+    const expertism = url.searchParams.get("expertism") ?? "0";
+    const problemSolving = url.searchParams.get("problem_solving") ?? "diy";
 
     // Actions
     const loanEvent = () => {
@@ -250,11 +253,228 @@ document.addEventListener("DOMContentLoaded", () => {
         // TODO: insert graphs
     };
 
+    const decideDiyEvent = () => {
+        let diyOrderly = 0;
+        let buyOrderly = 0;
+
+        if (orderly === "0") {
+            buyOrderly = 100;
+            diyOrderly = 0;
+        };
+
+        if (orderly === "1") {
+            buyOrderly = 75;
+            diyOrderly = 25;
+        };
+
+        if (orderly === "2") {
+            buyOrderly = 50;
+            diyOrderly = 50;
+        };
+
+        if (orderly === "3") {
+            buyOrderly = 25;
+            diyOrderly = 75;
+        };
+
+        if (orderly === "4") {
+            buyOrderly = 0;
+            diyOrderly = 100;
+        };
+
+        let diyTime = 0;
+        let buyTime = 0;
+
+        if (time === "daily") {
+            diyTime = 100;
+            buyTime = 0;
+        };
+
+        if (time === "weekly") {
+            diyTime = 50;
+            buyTime = 50;
+        };
+
+        if (time === "monthly") {
+            diyTime = 50;
+            buyTime = 50;
+        };
+
+        if (time === "yearly") {
+            diyTime = 0;
+            buyTime = 100;
+        };
+
+        let diyExpertism = 0;
+        let buyExpertism = 0;
+
+        if (expertism === "0") {
+            buyExpertism = 100;
+            diyExpertism = 0;
+        };
+
+        if (expertism === "1") {
+            buyExpertism = 75;
+            diyExpertism = 25;
+        };
+
+        if (expertism === "2") {
+            buyExpertism = 50;
+            diyExpertism = 50;
+        };
+
+        if (expertism === "3") {
+            buyExpertism = 25;
+            diyExpertism = 75;
+        };
+
+        if (expertism === "4") {
+            buyExpertism = 0;
+            diyExpertism = 100;
+        };
+
+        const avgDiy = (diyExpertism + diyTime + diyOrderly) / 3;
+        const avgBuy = (buyExpertism + buyTime + buyOrderly) / 3;
+
+        // TODO: insert graphs
+    };
+
+    const decideMaintenanceEvent = () => {
+        let diyProblemSolving = 0;
+        let buyProblemSolving = 0;
+
+        if (problemSolving === "almost_diy") {
+            diyProblemSolving = 50;
+            buyProblemSolving = 50;
+        };
+
+        if (problemSolving === "diy") {
+            diyProblemSolving = 100;
+            buyProblemSolving = 0;
+        };
+
+        if (problemSolving === "no_diy") {
+            diyProblemSolving = 0;
+            buyProblemSolving = 100;
+        };
+
+        let diyRenovationExp = 0;
+        let buyRenovationExp = 0;
+
+        if (renovationExperience === "0") {
+            buyRenovationExp = 100;
+            diyRenovationExp = 0;
+        };
+
+        if (renovationExperience === "1") {
+            buyRenovationExp = 75;
+            diyRenovationExp = 25;
+        };
+
+        if (renovationExperience === "2") {
+            buyRenovationExp = 50;
+            diyRenovationExp = 50;
+        };
+
+        if (renovationExperience === "3") {
+            buyRenovationExp = 25;
+            diyRenovationExp = 75;
+        };
+
+        if (renovationExperience === "4") {
+            buyRenovationExp = 0;
+            diyRenovationExp = 100;
+        };
+
+        let diyRenovationTime = 0;
+        let buyRenovationTime = 0;
+
+        if (renovationTime === "yes") {
+            diyRenovationTime = 100;
+            buyRenovationTime = 0;
+        };
+
+        if (renovationTime === "no") {
+            diyRenovationTime = 0;
+            buyRenovationTime = 100;
+        };
+
+        const avgDiy = (diyProblemSolving + diyRenovationExp + diyRenovationTime) / 3;
+        const avgBuy = (buyProblemSolving + buyRenovationExp + buyRenovationTime) / 3;
+
+        // TODO: insert graphs
+    };
+
+    const experienceEstateEvent = () => {
+        let beginnerInvestments = 0;
+        let expertInvestments = 0;
+
+        if (hasInvestments === "yes") {
+            expertInvestments = 100;
+            beginnerInvestments = 0;
+        };
+
+        if (hasInvestments === "no") {
+            expertInvestments = 0;
+            beginnerInvestments = 100;
+        };
+
+        let beginnerHasHouse = 0;
+        let expertHasHouse = 0;
+
+        if (alreadyHouse === "yes") {
+            expertHasHouse = 100;
+            beginnerHasHouse = 0;
+        };
+
+        if (alreadyHouse === "no") {
+            expertHasHouse = 0;
+            beginnerHasHouse = 100;
+        };
+
+        let beginnerExpertism = 0;
+        let expertExpertism = 0;
+
+        if (expertism === "0") {
+            beginnerExpertism = 100;
+            expertExpertism = 0;
+        };
+
+        if (expertism === "1") {
+            beginnerExpertism = 75;
+            expertExpertism = 25;
+        };
+
+        if (expertism === "2") {
+            beginnerExpertism = 50;
+            expertExpertism = 50;
+        };
+
+        if (expertism === "3") {
+            beginnerExpertism = 25;
+            expertExpertism = 75;
+        };
+
+        if (expertism === "4") {
+            beginnerExpertism = 0;
+            expertExpertism = 100;
+        };
+
+        const avgBeginner = (beginnerExpertism + beginnerHasHouse + beginnerInvestments) / 3;
+        const avgExpert = (expertExpertism + expertHasHouse + expertInvestments) / 3;
+
+        // TODO: insert graphs
+    };
+
     // Default actions
     loanEvent();
     riskToleranceEvent();
     typeEstateEvent();
     ageBuildingEvent();
+    diyBuildingEvent();
+    decideDiyEvent();
+    decideMaintenanceEvent();
+    experienceEstateEvent();
 
     // Field listeners
     loanTerm.addEventListener("input", () => {
