@@ -1,3 +1,5 @@
+import { MoneyFormat } from "../func";
+
 document.addEventListener("DOMContentLoaded", () => {
     // Fields
     const loanTerm = document.getElementById("loan_term");
@@ -45,8 +47,8 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelectorAll(".choosen-term").forEach((element) => {
             element.innerHTML = loanTerm.value + " jaar";
         });
-        document.querySelector(".loan-amount").innerHTML = "€ " + averageLoanAmount;
-        document.querySelector(".monthly-loan-payment").innerHTML = "€ " + monthlyPayment;
+        document.querySelector(".loan-amount").innerHTML = "€ " + MoneyFormat(averageLoanAmount);
+        document.querySelector(".monthly-loan-payment").innerHTML = "€ " + MoneyFormat(monthlyPayment);
     };
 
     const riskToleranceEvent = () => {
