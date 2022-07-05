@@ -19,11 +19,11 @@ document.addEventListener("DOMContentLoaded", () => {
         } else if (activeQuestion === 1) {
             console.log("second", activeQuestion);
             pagination[1].classList.add("active");
-        } else if (activeQuestion >= 2 && activeQuestion <= (max - 3)) {
+        } else if (activeQuestion >= 2 && activeQuestion <= (max - 2)) {
             console.log("center", activeQuestion);
-        } else if (activeQuestion === (max - 2)) {
-            console.log("fourth", activeQuestion);
         } else if (activeQuestion === (max - 1)) {
+            console.log("fourth", activeQuestion);
+        } else if (activeQuestion === (max)) {
             console.log("fifth", activeQuestion);
         };
     };
