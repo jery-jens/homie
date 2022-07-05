@@ -70,10 +70,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 prev.style.display = "none";
             };
 
-            if (activeQuestion === max) {
-                next.style.display = "none";
-            } else {
-                next.style.display = "block";
+            if (activeQuestion === (max + 1)) {
+                console.log("yes!")
             };
 
             questions.forEach((question, index) => {
