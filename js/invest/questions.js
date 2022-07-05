@@ -14,17 +14,45 @@ document.addEventListener("DOMContentLoaded", () => {
         const max = questions.length - 1;
 
         if (activeQuestion === 0) {
-            pagination[0].classList.add("active");
-            console.log("first", activeQuestion);
+            pagination.forEach((step, index) => {
+                if (index === 0) {
+                    step.classList.add("active");
+                } else {
+                    step.classList.remove("active");
+                };
+            });
         } else if (activeQuestion === 1) {
-            console.log("second", activeQuestion);
-            pagination[1].classList.add("active");
+            pagination.forEach((step, index) => {
+                if (index === 1) {
+                    step.classList.add("active");
+                } else {
+                    step.classList.remove("active");
+                };
+            });        
         } else if (activeQuestion >= 2 && activeQuestion <= (max - 2)) {
-            console.log("center", activeQuestion);
+            pagination.forEach((step, index) => {
+                if (index === 2) {
+                    step.classList.add("active");
+                } else {
+                    step.classList.remove("active");
+                };
+            });  
         } else if (activeQuestion === (max - 1)) {
-            console.log("fourth", activeQuestion);
+            pagination.forEach((step, index) => {
+                if (index === 3) {
+                    step.classList.add("active");
+                } else {
+                    step.classList.remove("active");
+                };
+            });  
         } else if (activeQuestion === (max)) {
-            console.log("fifth", activeQuestion);
+            pagination.forEach((step, index) => {
+                if (index === 4) {
+                    step.classList.add("active");
+                } else {
+                    step.classList.remove("active");
+                };
+            });  
         };
     };
 
