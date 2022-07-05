@@ -9,6 +9,31 @@ document.addEventListener("DOMContentLoaded", () => {
     // Move through questions
     let activeQuestion = 0;
 
+    // Change pagination
+    const changePagination = () => {
+        const max = questions.length - 1;
+
+        pagination.forEach((step, index) => {
+            if (activeQuestion === index) {
+                console.log("active", index, activeQuestion);
+                if (activeQuestion === 0) {
+                    pagination[0].classList.add("active");
+                } else if (activeQuestion === 1) {
+                    pagination[1].classList.add("active");
+                } else if (activeQuestion === (max - 1)) {
+                    pagination[3].classList.add("active");
+                } else if (activeQuestion === max) {
+                    pagination[4].classList.add("active");
+                } else {
+                    pagination[2].classList.add("active");
+                }
+            } else {
+                console.log("not-active", index);
+                step.classList.remove("active");
+            };
+        });
+    };
+
     if (questions) {
         const changeQuestion = (activeQuestion) => {
             const max = questions.length - 1;
@@ -29,11 +54,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (activeQuestion === index) {
                     question.classList.add("active");
                     question.classList.remove("hidden");
-                    // pagination[index].classList.add("active");
                 } else {
                     question.classList.remove("active");
                     question.classList.add("hidden");
-                    // pagination[index].classList.remove("active");
                 };
             });
         };
