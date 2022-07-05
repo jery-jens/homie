@@ -117,7 +117,9 @@ document.addEventListener("DOMContentLoaded", () => {
             "no": document.getElementById("investments_no").value,
         };
         const investmentsConcern = {
-            "none": document.getElementById("investments_concern").value,
+            "none": document.getElementById("no_concern").value,
+            "average": document.getElementById("average_concern").value,
+            "high": document.getElementById("high_concern").value,
         };
         const rentTo = [
             {
