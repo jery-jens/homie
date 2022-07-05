@@ -14,23 +14,17 @@ document.addEventListener("DOMContentLoaded", () => {
         const max = questions.length - 1;
 
         pagination.forEach((step, index) => {
-            if (activeQuestion === index) {
-                console.log("active", index, activeQuestion);
-                if (activeQuestion === 0) {
-                    pagination[0].classList.add("active");
-                } else if (activeQuestion === 1) {
-                    pagination[1].classList.add("active");
-                } else if (activeQuestion === (max - 1)) {
-                    pagination[3].classList.add("active");
-                } else if (activeQuestion === max) {
-                    pagination[4].classList.add("active");
-                } else {
-                    pagination[2].classList.add("active");
-                }
+            if (activeQuestion === 0) {
+                pagination[0].classList.add("active");
+                console.log("active", activeQuestion);
+            } else if (activeQuestion === 1) {
+                console.log("active", activeQuestion);
+                pagination[1].classList.add("active");
+            } else if (activeQuestion >= 2 && activeQuestion <= (max - 1)) {
+                console.log("center", activeQuestion);
             } else {
-                console.log("not-active", index);
                 step.classList.remove("active");
-            };
+            }
         });
     };
 
