@@ -21,10 +21,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Actions
     const loanEvent = () => {
-        console.log(loanTerm.value, interestRate.value)
+        // Calculate
         interestRateMonth = 1 + interestRate.value ** (1/12) - 1;
         averageLoanAmount = ((1 - (1 + interestRateMonth) ** -Math.abs(loanTerm.value * 12)) / interestRateMonth) * monthlyPayment;
-        console.log(interestRateMonth, averageLoanAmount);
+
+        // Show values
+        document.querySelectorAll(".choosen-term").forEach((element) => {
+            element.innerHTML = loanTerm.checked;
+        });
     };
 
     // Default actions
