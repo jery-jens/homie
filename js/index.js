@@ -44,6 +44,10 @@ document.addEventListener("DOMContentLoaded", () => {
      * Info bubbles
      */
 
-    const infoBubbleBtn = document.querySelectorAll(".info-bubble-btn");
+    const infoBubbleBtns = document.querySelectorAll(".info-bubble-btn");
     const infoBubbles = document.querySelectorAll(".popup-info-bubble");
+
+    infoBubbleBtns.forEach((infoBubbleBtn) => {
+
+    });
 });
