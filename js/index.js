@@ -13,7 +13,14 @@ document.addEventListener("DOMContentLoaded", () => {
      * Tool selector
      */
 
-    const selector = document.querySelector(".btn-tool-select");
+    const selectorBtn = document.querySelector(".btn-tool-select");
+    const selectorPopup = document.querySelector(".popup-toolselect");
+
+    if (selectorBtn && selectorPopup) {
+        selectorBtn.addEventListener("click", () => {
+            selectorPopup.style.display = "block";
+        });
+    };
 
     /**
      * Info show
@@ -32,4 +39,11 @@ document.addEventListener("DOMContentLoaded", () => {
             infoPopup.style.display = "none";
         });
     };
+
+    /**
+     * Info bubbles
+     */
+
+    const infoBubbleBtn = document.querySelectorAll(".info-bubble-btn");
+    const infoBubbles = document.querySelectorAll(".popup-info-bubble");
 });
