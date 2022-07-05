@@ -27,6 +27,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const time = url.searchParams.get("time") ?? "daily";
     const waiting = url.searchParams.get("waiting") ?? "yes";
     const tech = url.searchParams.get("tech") ?? "0";
+    const pref = url.searchParams.get("pref") ?? "new";
+    const renovationTime = url.searchParams.get("renovate") ?? "yes";
+    const renovationExperience = url.searchParams.get("renovation_exp") ?? "0";
+    const alreadyHouse = url.searchParams.get("already_house") ?? "yes";
 
     // Actions
     const loanEvent = () => {
@@ -164,7 +168,86 @@ document.addEventListener("DOMContentLoaded", () => {
         const avgOld = (oldTech + oldTimePerc + oldWaitingTime) / 3;
         const avgNew = (newTech + newTimePerc + newWaitingTime) / 3;
 
-        console.log(avgOld, avgNew);
+        // TODO: insert graphs
+    };
+
+    const diyBuildingEvent = () => {
+        let readyType = 0;
+        let diyType = 0;
+
+        if (pref === "new") {
+            readyType = 100;
+            diyType = 0;
+        };
+
+        if (pref === "none") {
+            readyType = 50;
+            diyType = 50;
+        };
+
+        if (pref === "old") {
+            readyType = 0;
+            diyType = 100;
+        };
+
+        let readyTime = 0;
+        let diyTime = 0;
+
+        if (renovationTime === "no") {
+            readyTime = 100;
+            diyTime = 0;
+        };
+
+        if (renovationTime === "yes") {
+            readyTime = 0;
+            diyTime = 100;
+        };
+
+        let readyRenovationExp = 0;
+        let diyRenovationExp = 0;
+
+        if (renovationExperience === "0") {
+            readyRenovationExp = 100;
+            diyRenovationExp = 0;
+        };
+
+        if (renovationExperience === "1") {
+            readyRenovationExp = 75;
+            diyRenovationExp = 25;
+        };
+
+        if (renovationExperience === "2") {
+            readyRenovationExp = 50;
+            diyRenovationExp = 50;
+        };
+
+        if (renovationExperience === "3") {
+            readyRenovationExp = 25;
+            diyRenovationExp = 75;
+        };
+
+        if (renovationExperience === "4") {
+            readyRenovationExp = 0;
+            diyRenovationExp = 100;
+        };
+
+        let readyAlreadyHouse = 0;
+        let diyAlreadyHouse = 0;
+
+        if (alreadyHouse === "yes") {
+            readyAlreadyHouse = 100;
+            diyAlreadyHouse = 0;
+        };
+
+        if (alreadyHouse === "no") {
+            readyAlreadyHouse = 0;
+            diyAlreadyHouse = 100;
+        };
+
+        const avgReady = (readyAlreadyHouse + readyRenovationExp + readyTime + readyType) / 4;
+        const avgDiy = (diyAlreadyHouse + diyRenovationExp + diyTime + diyType) / 4;
+
+        // TODO: insert graphs
     };
 
     // Default actions
