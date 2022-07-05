@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Actions
     const loanEvent = () => {
+        console.log(loanTerm.value, interestRate.value)
         interestRateMonth = 1 + interestRate.value ** (1/12) - 1;
         averageLoanAmount = ((1 - (1 + interestRateMonth) ** -Math.abs(loanTerm.value * 12)) / interestRateMonth) * monthlyPayment;
         console.log(interestRateMonth, averageLoanAmount);
