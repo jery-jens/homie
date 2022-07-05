@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Show values
         document.querySelectorAll(".choosen-term").forEach((element) => {
-            element.innerHTML = loanTerm.checked;
+            element.innerHTML = loanTerm.value;
         });
         document.querySelector(".loan-amount").innerHTML = "€ " + averageLoanAmount;
         document.querySelector(".monthly-loan-payment").innerHTML = "€ " + monthlyPayment;
