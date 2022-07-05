@@ -121,31 +121,29 @@ document.addEventListener("DOMContentLoaded", () => {
             "average": document.getElementById("average_concern").value,
             "high": document.getElementById("high_concern").value,
         };
-        const rentTo = [
-            {
-                "students": document.getElementById("rent_students").value,
-            },
-            {
-                "youth": document.getElementById("rent_youth").value,
-            },
-            {
-                "families": document.getElementById("rent_families").value,
-            },
-            {
-                "seniors": document.getElementById("rent_seniors").value,
-            },
-        ];
-        const rentLength = [
-            {
-                "short": document.getElementById("rent_short").value,
-            },
-            {
-                "yearly": document.getElementById("rent_yearly").value,
-            },
-            {
-                "long": document.getElementById("rent_long").value,
-            },
-        ];
+        const rentTo = [];
+        if (document.getElementById("rent_students").value) {
+            rentTo.push("students");
+        };
+        if (document.getElementById("rent_youth").value) {
+            rentTo.push("youth");
+        };
+        if (document.getElementById("rent_families").value) {
+            rentTo.push("families");
+        };
+        if (document.getElementById("rent_seniors").value) {
+            rentTo.push("seniors");
+        };
+        const rentLength = [];
+        if (document.getElementById("rent_short").value) {
+            rentLength.push("short");
+        };
+        if (document.getElementById("rent_yearly").value) {
+            rentLength.push("yearly");
+        };
+        if (document.getElementById("rent_long").value) {
+            rentLength.push("long");
+        };
         const time = {
             "daily": document.getElementById("daily").value,
             "weekly": document.getElementById("weekly").value,
@@ -202,6 +200,6 @@ document.addEventListener("DOMContentLoaded", () => {
             "no": document.getElementById("house_no"),
         };
 
-        window.location = `/invest-test/result`;
+        window.location = `/invest-test/result?net_icome=${netIncome}&other_loans=${otherLoans}&car_loan=${carLoan}&alimony=${alimony}&financial=${financial.danger ? "danger": financial.hard ? "hard" : "safe"}&investments=${investments.no ? "no" : "yes"}&investments_concern=${investmentsConcern.average ? "average" : investmentsConcern.high ? "high" : "none"}&rent_to=${rentTo.toString()}&rent_length=${rentLength.toString()}&time=${time.daily ? "daily": time.monthly ? "monthly": time.weekly ? "weekly" : "yearly"}&expertism=${expertism[0] ? "0" : expertism[1] ? "1" : expertism[2] ? "2" : expertism[3] ? "3" : "4"}&waiting=${waiting.yes ? "yes" : "no"}&tech=${tech[0] ? "0" : tech[1] ? "1" : tech[2] ? "2" : "3"}&pref=${pref.new ? "new" : pref.none ? "none" : "old"}&renovate=${renovate.no ? "no" : "yes"}&renovation_exp=${renovationExp[0] ? "0" : renovationExp[1] ? "1" : renovationExp[2] ? "2" : renovationExp[3] ? "3" : "4"}&orderly=${orderly[0] ? "0" : orderly[1] ? "1" : orderly[2] ? "2" : orderly[3] ? "3" : "4"}&problem_solving=${problemSolving.almost_diy ? "almost_diy" : problemSolving.diy ? "diy" : "no_diy"}&already_house=${alreadyHouse.yes ? "yes" : "no"}`;
     };
 });
