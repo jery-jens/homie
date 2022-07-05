@@ -62,16 +62,16 @@ document.addEventListener("DOMContentLoaded", () => {
         const changeQuestion = (activeQuestion) => {
             const max = questions.length - 1;
 
+            if (activeQuestion === (max + 1)) {
+                submitForm();
+            };
+
             changePagination();
 
             if (activeQuestion > 0) {
                 prev.style.display = "block";
             } else {
                 prev.style.display = "none";
-            };
-
-            if (activeQuestion === (max + 1)) {
-                submitForm();
             };
 
             questions.forEach((question, index) => {
