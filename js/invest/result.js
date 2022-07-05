@@ -102,6 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Default actions
     loanEvent();
     riskToleranceEvent();
+    typeEstateEvent();
 
     // Field listeners
     loanTerm.addEventListener("input", () => {
