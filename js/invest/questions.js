@@ -34,9 +34,13 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     };
 
+    changePagination();
+
     if (questions) {
         const changeQuestion = (activeQuestion) => {
             const max = questions.length - 1;
+
+            changePagination();
 
             if (activeQuestion > 0) {
                 prev.style.display = "block";
