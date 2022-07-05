@@ -26,6 +26,9 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log(interestRateMonth, averageLoanAmount);
     };
 
+    // Default actions
+    loanEvent();
+
     // Field listeners
     loanTerm.addEventListener("input", () => {
         loanEvent();
