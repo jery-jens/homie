@@ -39,6 +39,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const problemSolving = url.searchParams.get("problem_solving") ?? "diy";
 
     // Actions
+    const changeProgress = (className, value) => {
+        new CircleProgress(className, {
+            value: value.toFixed(0),
+            max: 100,
+        });
+
+        document.querySelector(className).querySelector(".circle-progress-circle").style.stroke = value > 60 ? "rgba(0,187,119,0.4)" : value < 60 && value > 40 ? "rgba(255,192,0,0.4)" : "rgba(255,68,68,0.4)";
+        document.querySelector(className).querySelector(".circle-progress-text-separator").innerHTML = "%";
+    };
+
     const loanEvent = () => {
         // Calculate
         interestRateMonth = 1 + interestRate.value ** (1/12) - 1;
@@ -174,12 +184,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const avgOld = (oldTech + oldTimePerc + oldWaitingTime) / 3;
         const avgNew = (newTech + newTimePerc + newWaitingTime) / 3;
 
-        const avgOldChart = new CircleProgress('.avg-old', {
-            value: avgOld.toFixed(0),
-            max: 100,
-        });
-
-        document.querySelector(".avg-old").querySelector(".circle-progress-circle").style.stroke = avgOld > 60 ? "rgba(0,187,119,0.4)" : avgOld < 60 && avgOld > 40 ? "rgba(255,192,0,0.4)" : "rgba(255,68,68,0.4)";
+        changeProgress(".avg-old", avgOld);
     };
 
     const diyBuildingEvent = () => {
