@@ -419,7 +419,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const avgDiy = (diyProblemSolving + diyRenovationExp + diyRenovationTime) / 3;
         const avgBuy = (buyProblemSolving + buyRenovationExp + buyRenovationTime) / 3;
 
-        // TODO: insert graphs
+        changeProgress(".avg-diy-maintenance", avgDiy);
+        changeProgress(".avg-buy-maintenance", avgBuy);
     };
 
     const experienceEstateEvent = () => {
