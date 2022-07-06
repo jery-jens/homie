@@ -265,7 +265,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const avgReady = (readyAlreadyHouse + readyRenovationExp + readyTime + readyType) / 4;
         const avgDiy = (diyAlreadyHouse + diyRenovationExp + diyTime + diyType) / 4;
 
-        // TODO: insert graphs
+        changeProgress(".avg-ready", avgReady);
+        changeProgress(".avg-diy", avgDiy);
     };
 
     const decideDiyEvent = () => {
