@@ -1,3 +1,3 @@
 export const MoneyFormat = (amount) => {
-    return Number(amount).toLocaleString("nl-BE", {minimumFractionDigits: 2});
+    return Number(amount).toLocaleString("nl-BE", {maximumFractionDigits: 2});
 };
