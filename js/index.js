@@ -53,6 +53,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const infoBubbleBtns = document.querySelectorAll(".info-bubble-btn");
     const infoBubbles = document.querySelectorAll(".popup-info-bubble");
 
+    infoBubbles.forEach((infoBubble) => {
+        infoBubble.querySelector(".btn-close-popup").addEventListener("click", () => {
+            infoBubble.style.display = "none";
+        });
+    });
+
     infoBubbleBtns.forEach((infoBubbleBtn) => {
         const attr = infoBubbleBtn.getAttribute("data-info");
         
