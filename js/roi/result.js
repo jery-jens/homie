@@ -20,13 +20,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const net = document.querySelector(".net");
   const brut = document.querySelector(".brut");
 
-  const testNet = ((rentYear - (amountTimeEmpty * rentPrice) - propertyTax - yearlyCosts - yearlyAmountInsurances) / (purchasePrice + oneTimeCosts)) * 100;
+  const netResult = ((rentYear - (amountTimeEmpty * rentPrice) - propertyTax - yearlyCosts - yearlyAmountInsurances) / (purchasePrice + oneTimeCosts)) * 100;
+  const brutResult = ((rentYear) / (purchasePrice + oneTimeCosts)) * 100;
 
-  console.log(rentYear, amountTimeEmpty, rentPrice, propertyTax, yearlyCosts, yearlyAmountInsurances, purchasePrice, oneTimeCosts);
-  console.log(testNet);
-
-  net.innerHTML = "€ " + netRent;
-  brut.innerHTML = "€ " + brutRent;
+  net.innerHTML = "€ " + netResult;
+  brut.innerHTML = "€ " + brutResult;
 
   /**
    * Get back
