@@ -54,7 +54,6 @@ document.addEventListener("DOMContentLoaded", () => {
         // Calculate
         interestRateMonth = 1 + interestRate.value ** (1/12) - 1;
         averageLoanAmount = ((1 - (1 + interestRateMonth) ** -Math.abs(loanTerm.value * 12)) / interestRateMonth) * monthlyPayment;
-        console.log(loanTerm.value * 12);
 
         // Show values
         document.querySelectorAll(".choosen-term").forEach((element) => {
@@ -75,52 +74,83 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     const typeEstateEvent = () => {
-        let renters = rentTo.split(",");
+        const renters = rentTo.split(",");
 
-        // Vacationhouse
-        if (renters.includes("students") && renters.includes("youth") && renters.includes("families") && renters.includes("seniors")) {
-            if (rentLength.includes("short") && rentLength.length === 1) {
-                if (time === "daily" || time === "weekly" || time === "monthly") {
-                    typeEstate = "vacationhouse";
-                };
-            };
+        let avgVacationHouse = 0;
+        let avgStudentHouse = 0;
+        let avgAssistantHouse = 0;
+        let avgAppartment = 0;
+        let avgHouse = 0;
+
+        let avgVacationHouseRenters = 0;
+        let avgStudentHouseRenters = 0;
+        let avgAssistantHouseRenters = 0;
+        let avgAppartmentRenters = 0;
+        let avgHouseRenters = 0;
+
+        let avgVacationHouseTerm = rentLength === "short" ? 100 : rentLength === "yearly" ? 0 : 0;
+        let avgStudentHouseTerm = rentLength === "short" ? 70 : rentLength === "yearly" ? 100 : 70;
+        let avgAssistantHouseTerm = rentLength === "short" ? 0 : rentLength === "yearly" ? 20 : 100;
+        let avgAppartmentTerm = rentLength === "short" ? 0 : rentLength === "yearly" ? 100 : 100;
+        let avgHouseTerm = rentLength === "short" ? 0 : rentLength === "yearly" ? 100 : 100;
+
+        let avgVacationHouseTime = time === "daily" ? 100 : time === "weekly" ? 100 : time === "monthly" ? 30 : 0;
+        let avgStudentHouseTime = time === "daily" ? 100 : time === "weekly" ? 100 : time === "monthly" ? 80 : 0;
+        let avgAssistantHouseTime = time === "daily" ? 100 : time === "weekly" ? 100 : time === "monthly" ? 100 : 80;
+        let avgAppartmentTime = time === "daily" ? 100 : time === "weekly" ? 100 : time === "monthly" ? 100 : 100;
+        let avgHouseTime = time === "daily" ? 100 : time === "weekly" ? 100 : time === "monthly" ? 100 : 100;
+
+        let avgVacationHouseLoan = averageLoanAmount <= 99999 ? 70 : averageLoanAmount >= 100000 && averageLoanAmount <= 199999 ? 100 : averageLoanAmount >= 200000 && averageLoanAmount <= 299999 ? 100 : averageLoanAmount >= 300000 && averageLoanAmount <= 399999 ? 100 : averageLoanAmount >= 400000 && averageLoanAmount <= 499999 ? 100 : 100;
+        let avgStudentHouseLoan = averageLoanAmount <= 99999 ? 30 : averageLoanAmount >= 100000 && averageLoanAmount <= 199999 ? 100 : averageLoanAmount >= 200000 && averageLoanAmount <= 299999 ? 80 : averageLoanAmount >= 300000 && averageLoanAmount <= 399999 ? 60 : averageLoanAmount >= 400000 && averageLoanAmount <= 499999 ? 20 : 10;
+        let avgAssistantHouseLoan = averageLoanAmount <= 99999 ? 20 : averageLoanAmount >= 100000 && averageLoanAmount <= 199999 ? 40 : averageLoanAmount >= 200000 && averageLoanAmount <= 299999 ? 100 : averageLoanAmount >= 300000 && averageLoanAmount <= 399999 ? 80 : averageLoanAmount >= 400000 && averageLoanAmount <= 499999 ? 40 : 20;
+        let avgAppartmentLoan = averageLoanAmount <= 99999 ? 0 : averageLoanAmount >= 100000 && averageLoanAmount <= 199999 ? 30 : averageLoanAmount >= 200000 && averageLoanAmount <= 299999 ? 100 : averageLoanAmount >= 300000 && averageLoanAmount <= 399999 ? 100 : averageLoanAmount >= 400000 && averageLoanAmount <= 499999 ? 100 : 100;
+        let avgHouseLoan = averageLoanAmount <= 99999 ? 0 : averageLoanAmount >= 100000 && averageLoanAmount <= 199999 ? 0 : averageLoanAmount >= 200000 && averageLoanAmount <= 299999 ? 60 : averageLoanAmount >= 300000 && averageLoanAmount <= 399999 ? 100 : averageLoanAmount >= 400000 && averageLoanAmount <= 499999 ? 100 : 100;
+
+        if (renters.includes("students")) {
+            avgVacationHouseRenters = avgVacationHouseRenters + 30;
+            avgStudentHouseRenters = avgStudentHouseRenters + 100;
+            avgAssistantHouseRenters = avgAssistantHouseRenters + 0;
+            avgAppartmentRenters = avgAppartmentRenters + 70;
+            avgHouseRenters = avgHouseRenters + 0;
         };
 
-        // Studenthouse
-        if (renters.includes("students") && renters.length === 1) {
-            if (time === "daily" || time === "weekly" || time === "monthly") {
-                if (averageLoanAmount >= 100000 && averageLoanAmount <= 299000) {
-                    typeEstate = "studenthouse";
-                };
-            };
+        if (renters.includes("youth")) {
+            avgVacationHouseRenters = avgVacationHouseRenters + 80;
+            avgStudentHouseRenters = avgStudentHouseRenters + 0;
+            avgAssistantHouseRenters = avgAssistantHouseRenters + 0;
+            avgAppartmentRenters = avgAppartmentRenters + 90;
+            avgHouseRenters = avgHouseRenters + 40;
         };
 
-        // Assistanthouse
-        if (renters.includes("seniors") && renters.length === 1) {
-            if (rentLength.includes("long") && rentLength.length === 1) {
-                if (averageLoanAmount >= 200000 && averageLoanAmount <= 399000) {
-                    typeEstate = "assistanthouse";
-                };
-            };
+        if (renters.includes("families")) {
+            avgVacationHouseRenters = avgVacationHouseRenters + 80;
+            avgStudentHouseRenters = avgStudentHouseRenters + 0;
+            avgAssistantHouseRenters = avgAssistantHouseRenters + 0;
+            avgAppartmentRenters = avgAppartmentRenters + 60;
+            avgHouseRenters = avgHouseRenters + 80;
         };
 
-        // Appartment/studio
-        if (rentLength.includes("long") && rentLength.includes("yearly") && rentLength.length <= 2) {
-            if (averageLoanAmount >= 200000) {
-                typeEstate = "appartment";
-            };
+        if (renters.includes("seniors")) {
+            avgVacationHouseRenters = avgVacationHouseRenters + 50;
+            avgStudentHouseRenters = avgStudentHouseRenters + 0;
+            avgAssistantHouseRenters = avgAssistantHouseRenters + 100;
+            avgAppartmentRenters = avgAppartmentRenters + 80;
+            avgHouseRenters = avgHouseRenters + 50;
         };
 
-        // House
-        if (!renters.includes("students")) {
-            if (!rentLength.includes("short")) {
-                if (averageLoanAmount >= 300000) {
-                    typeEstate = "house";
-                };
-            };
-        };
+        avgVacationHouseRenters = avgVacationHouseRenters / renters.length;
+        avgStudentHouseRenters = avgStudentHouseRenters / renters.length;
+        avgAssistantHouseRenters = avgAssistantHouseRenters / renters.length;
+        avgAppartmentRenters = avgAppartmentRenters / renters.length;
+        avgHouseRenters = avgHouseRenters / renters.length;
 
-        document.querySelector(".type-estate").innerHTML = typeEstate === "house" ? "Huis" : typeEstate === "vacationhouse" ? "Vakantiewoning" : typeEstate === "studenthouse" ? "Studentenwoning" : typeEstate === "assistanthouse" ? "Assistentiewoning": "Appartement/studio";
+        avgVacationHouse = (avgVacationHouseRenters + avgVacationHouseLoan + avgVacationHouseTerm + avgVacationHouseTime) / 4;
+        avgStudentHouse = (avgStudentHouseRenters + avgStudentHouseLoan + avgStudentHouseTerm + avgStudentHouseTime) / 4;
+        avgAssistantHouse = (avgAssistantHouseRenters + avgAssistantHouseLoan + avgAssistantHouseTerm + avgAssistantHouseTime) / 4;
+        avgAppartment = (avgAppartmentRenters + avgAppartmentLoan + avgAppartmentTerm + avgAppartmentTime) / 4;
+        avgHouse = (avgHouseRenters + avgHouseLoan + avgHouseTerm + avgHouseTime) / 4;
+
+        console.log(avgVacationHouse, avgStudentHouse, avgAssistantHouse, avgAppartment, avgHouse);
     };
 
     const ageBuildingEvent = () => {
