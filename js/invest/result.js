@@ -481,7 +481,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const avgBeginner = (beginnerExpertism + beginnerHasHouse + beginnerInvestments) / 3;
         const avgExpert = (expertExpertism + expertHasHouse + expertInvestments) / 3;
 
-        // TODO: insert graphs
+        changeProgress(".avg-beginner", avgBeginner);
+        changeProgress(".avg-expert", avgExpert);
     };
 
     // Default actions
