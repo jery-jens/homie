@@ -174,10 +174,12 @@ document.addEventListener("DOMContentLoaded", () => {
         const avgOld = (oldTech + oldTimePerc + oldWaitingTime) / 3;
         const avgNew = (newTech + newTimePerc + newWaitingTime) / 3;
 
-        const cp = new CircleProgress('.avg-old', {
+        const avgOldChart = new CircleProgress('.avg-old', {
             value: 50,
             max: 100,
         });
+
+        document.querySelector(".avg-old").querySelector(".circle-progress-circle").style.stroke = "rgba(0,187,119,0.4)";
     };
 
     const diyBuildingEvent = () => {
