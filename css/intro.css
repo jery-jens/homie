@@ -16,3 +16,8 @@
 .main-menu {
     transition: ease-in-out .2s;
 }
+
+.tip-content a {
+    color: #C4A9FF;
+    font-weight: 700;
+}
