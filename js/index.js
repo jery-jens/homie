@@ -55,6 +55,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     infoBubbleBtns.forEach((infoBubbleBtn) => {
         const attr = infoBubbleBtn.getAttribute("data-info");
-        console.log(attr);
+        
+        infoBubbleBtn.addEventListener("click", () => {
+            infoBubbles.forEach((infoBubble) => {
+                if (attr === infoBubble.querySelector(".info-bubble-label").innerHTML) {
+                    infoBubble.style.display = "flex";
+                };
+            });
+        });
     });
 });
