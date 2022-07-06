@@ -1,5 +1,5 @@
 import { MoneyFormat } from "../func/index.js";
-import CircleProgressBar from "../vendor/circle-progress-bar.min.js";
+import "../vendor/circle-progress-bar.min.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     // Fields
