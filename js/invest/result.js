@@ -46,6 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         document.querySelector(className).querySelector(".circle-progress-circle").style.stroke = value > 60 ? "rgba(0,187,119,0.4)" : value < 60 && value > 40 ? "rgba(255,192,0,0.4)" : "rgba(255,68,68,0.4)";
+        document.querySelector(className).querySelector(".circle-progress-value").style.stroke = value > 60 ? "rgba(0,187,119,1)" : value < 60 && value > 40 ? "rgba(255,192,0,1)" : "rgba(255,68,68,1)";
         document.querySelector(className).querySelector(".circle-progress-text-separator").innerHTML = "%";
     };
 
@@ -185,6 +186,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const avgNew = (newTech + newTimePerc + newWaitingTime) / 3;
 
         changeProgress(".avg-old", avgOld);
+        changeProgress(".avg-new", avgNew);
     };
 
     const diyBuildingEvent = () => {
