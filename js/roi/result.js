@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const testNet = ((rentYear - (amountTimeEmpty * rentPrice) - propertyTax - yearlyCosts - yearlyAmountInsurances) / (purchasePrice + oneTimeCosts)) * 100;
 
-  console.log(testNet);
+  console.log(rentYear, amountTimeEmpty, rentPrice, propertyTax, yearlyCosts, yearlyAmountInsurances, purchasePrice, oneTimeCosts);
 
   net.innerHTML = "€ " + netRent;
   brut.innerHTML = "€ " + brutRent;
