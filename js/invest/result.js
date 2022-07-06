@@ -1,4 +1,4 @@
-import { MoneyFormat } from "../func";
+import { MoneyFormat } from "../func/index.js";
 import CircleProgressBar from "../vendor/circle-progress-bar.min.js";
 
 document.addEventListener("DOMContentLoaded", () => {
