@@ -2,3 +2,18 @@
     width: 80px; 
     height: 80px;
 }
+
+.circle-progress-text-separator {
+    display: none;
+}
+
+.circle-progress-text-max {
+    display: none;
+}
+
+.circle-progress-text-value {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 700;
+    color: #FFF;
+    font-size: 14px;
+}
