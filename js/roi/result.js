@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const net = document.querySelector(".net");
   const brut = document.querySelector(".brut");
 
-  const testNet = (((rentPrice * 12) - (amountTimeEmpty * rentPrice) - yearlyCosts - propertyTax - yearlyAmountInsurances) / (purchasePrice + oneTimeCosts)) * 100;
+  const testNet = (((rentPrice * 12) - (amountTimeEmpty * rentPrice) - yearlyCosts - propertyTax - yearlyAmountInsurances) / (purchasePrice + (oneTimeCosts * (12.5/100)))) * 100;
   console.log(testNet);
 
   net.innerHTML = "€ " + netRent;
