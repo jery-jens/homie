@@ -462,6 +462,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         changeProgress(".avg-diy-maintenance", avgDiy);
         changeProgress(".avg-buy-maintenance", avgBuy);
+
+        document.querySelector(avgDiy > avgBuy ? ".when-diy-maintenance" : ".when-buy-maintenance").style.display = "flex";
     };
 
     const experienceEstateEvent = () => {
