@@ -31,6 +31,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const infoPopup = document.querySelector(".popup-tool-info");
     const closeInfoPopup = document.querySelector(".popup-header-close");
 
+    console.log(infoBtn, infoPopup, closeInfoPopup)
+
     if (infoBtn && infoPopup && closeInfoPopup) {
         infoBtn.addEventListener("click", () => {
             infoPopup.style.display = "flex";
