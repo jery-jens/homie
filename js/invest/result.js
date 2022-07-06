@@ -304,6 +304,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
         changeProgress(".avg-ready", avgReady);
         changeProgress(".avg-diy", avgDiy);
+
+        if (avgDiy > avgReady) {
+            document.querySelector(".when-to-renovate").style.display = "flex";
+        };
     };
 
     const decideDiyEvent = () => {
