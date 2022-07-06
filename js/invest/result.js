@@ -1,5 +1,5 @@
 import { MoneyFormat } from "../func/index.js";
-import "../vendor/circle-progress-bar.min.js";
+import CircleProgress from "../vendor/circle-progress.min.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     // Fields
@@ -174,16 +174,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const avgOld = (oldTech + oldTimePerc + oldWaitingTime) / 3;
         const avgNew = (newTech + newTimePerc + newWaitingTime) / 3;
 
-        const canvasWrapper = document.querySelector(".type-house-charts");
-        const avgOldCanvas = document.createElement("canvas");
-        avgOldCanvas.width = "300";
-        avgOldCanvas.height = "300";
-
-        canvasWrapper.appendChild(avgOldCanvas);
-        var circleProgressBar = new CircleProgressBar(avgOldCanvas, {
-            colors: ['#0000FF', '#4B0082', '#9400D3']
+        const cp = new CircleProgress('.avg-old', {
+            value: 50,
+            max: 100,
         });
-        circleProgressBar.setValue(0.9);
     };
 
     const diyBuildingEvent = () => {
