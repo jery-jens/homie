@@ -163,21 +163,21 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   regionField.addEventListener("input", (e) => {
-    const registrationTax = calcPercentage(priceField.value ?? 0, e.target.value === "flanders" ? 12 : 12.5);
+    const registrationTax = calcPercentage(Number(priceField.value) ?? 0, e.target.value === "flanders" ? 12 : 12.5);
     registrationTaxField.value = registrationTax;
   });
 
   loanAmountField.addEventListener("input", (e) => {
-    mortgageRegistrationField.value = ((e.target.value ?? 0 * 1.1) / 100) + ((e.target.value ?? 0 * 1.1) / (100 * 0.3)) + 160.5 + (e.target.value <= 272727 ? 220 : 950);
-    annualMortgageRepayment.value = calcYearlyHypo(((interestRateField.value ?? 0) / 100), e.target.value ?? 0, ((creditTermField.value ?? 5) * 12));
+    mortgageRegistrationField.value = ((Number(e.target.value) ?? 0 * 1.1) / 100) + ((Number(e.target.value) ?? 0 * 1.1) / (100 * 0.3)) + 160.5 + (Number(e.target.value) <= 272727 ? 220 : 950);
+    annualMortgageRepayment.value = calcYearlyHypo(((Number(interestRateField.value) ?? 0) / 100), Number(e.target.value) ?? 0, ((Number(creditTermField.value) ?? 5) * 12));
   });
 
   interestRateField.addEventListener("input", (e) => {
-    annualMortgageRepayment.value = calcYearlyHypo(((interestRateField.value ?? 0) / 100), loanAmountField.value ?? 0, ((creditTermField.value ?? 5) * 12));
+    annualMortgageRepayment.value = calcYearlyHypo(((Number(interestRateField.value) ?? 0) / 100), Number(loanAmountField.value) ?? 0, ((Number(creditTermField.value) ?? 5) * 12));
   });
 
   creditTermField.addEventListener("input", (e) => {
-    annualMortgageRepayment.value = calcYearlyHypo(((interestRateField.value ?? 0) / 100), loanAmountField.value ?? 0, ((creditTermField.value ?? 5) * 12));
+    annualMortgageRepayment.value = calcYearlyHypo(((Number(interestRateField.value) ?? 0) / 100), Number(loanAmountField.value) ?? 0, ((Number(creditTermField.value) ?? 5) * 12));
   });
 
   tcoForm.addEventListener("submit", (e) => {
@@ -209,6 +209,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const management = document.getElementById("management").value;
     const commonCosts = document.getElementById("common_costs").value;
 
-    window.location = "/tco-calculator/result" + "?credit=" + Math.round(mortgageRegistration ?? 0 + notaryMortgage ?? 0 + administrationCostsMortgage ?? 0) + "&on_purchase=" + Math.round(isNewProject.value ? btw + landRegistry + notaryFees : registrationTax + landRegistry + notaryFees) + "&after_purchase=" + Math.round(energyRenovations ?? 0 + otherRenovations ?? 0) + "&yearly=" + Math.round(annualMortgageRepayment ?? 0 + propertyTax ?? 0 + insurances ?? 0 + reparations ?? 0 + management ?? 0 + commonCosts ?? 0);
+    window.location = "/tco-calculator/result" + "?credit=" + Math.round(Number(mortgageRegistration) ?? 0 + Number(notaryMortgage) ?? 0 + Number(administrationCostsMortgage) ?? 0) + "&on_purchase=" + Math.round(isNewProject.value ? Number(btw) + Number(landRegistry) + Number(notaryFees) : Number(registrationTax) + Number(landRegistry) + Number(notaryFees)) + "&after_purchase=" + Math.round(Number(energyRenovations) ?? 0 + Number(otherRenovations) ?? 0) + "&yearly=" + Math.round(Number(annualMortgageRepayment) ?? 0 + Number(propertyTax) ?? 0 + Number(insurances) ?? 0 + Number(reparations) ?? 0 + Number(management) ?? 0 + Number(commonCosts) ?? 0);
   });
 });
