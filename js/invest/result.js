@@ -352,7 +352,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const avgDiy = (diyExpertism + diyTime + diyOrderly) / 3;
         const avgBuy = (buyExpertism + buyTime + buyOrderly) / 3;
 
-        // TODO: insert graphs
+        changeProgress(".avg-diy-managment", avgDiy);
+        changeProgress(".avg-own-managment", avgBuy);
     };
 
     const decideMaintenanceEvent = () => {
