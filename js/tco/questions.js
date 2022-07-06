@@ -155,29 +155,29 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.target.value >= 351000 && e.target.value <= 400000) notaryFee = 3070;
     if (e.target.value > 400000) notaryFee = 3140;
 
-    registrationTaxField.value = registrationTax;
-    btwField.value = btwNew;
-    notaryFeesField.value = notaryFee + administrativeCosts;
-    landRegistryField.value = 240;
-    notaryMortgageField.value = notaryMortgage;
+    registrationTaxField.value = registrationTax.toFixed(2);
+    btwField.value = btwNew.toFixed(2);
+    notaryFeesField.value = notaryFee.toFixed(2) + administrativeCosts.toFixed(2);
+    landRegistryField.value = Number(240).toFixed(2);
+    notaryMortgageField.value = notaryMortgage.toFixed(2);
   });
 
   regionField.addEventListener("input", (e) => {
     const registrationTax = calcPercentage(Number(priceField.value) ?? 0, e.target.value === "flanders" ? 12 : 12.5);
-    registrationTaxField.value = registrationTax;
+    registrationTaxField.value = registrationTax.toFixed(2);
   });
 
   loanAmountField.addEventListener("input", (e) => {
-    mortgageRegistrationField.value = ((Number(e.target.value) ?? 0 * 1.1) / 100) + ((Number(e.target.value) ?? 0 * 1.1) / (100 * 0.3)) + 160.5 + (Number(e.target.value) <= 272727 ? 220 : 950);
-    annualMortgageRepayment.value = calcYearlyHypo(((Number(interestRateField.value) ?? 0) / 100), Number(e.target.value) ?? 0, ((Number(creditTermField.value) ?? 5) * 12));
+    mortgageRegistrationField.value = ((Number(e.target.value) ?? 0 * 1.1) / 100) + ((Number(e.target.value) ?? 0 * 1.1) / (100 * 0.3)) + 160.5 + (Number(e.target.value) <= 272727 ? 220 : 950).toFixed(2);
+    annualMortgageRepayment.value = calcYearlyHypo(((Number(interestRateField.value) ?? 0) / 100), Number(e.target.value) ?? 0, ((Number(creditTermField.value) ?? 5) * 12)).toFixed(2);
   });
 
   interestRateField.addEventListener("input", (e) => {
-    annualMortgageRepayment.value = calcYearlyHypo(((Number(interestRateField.value) ?? 0) / 100), Number(loanAmountField.value) ?? 0, ((Number(creditTermField.value) ?? 5) * 12));
+    annualMortgageRepayment.value = calcYearlyHypo(((Number(interestRateField.value) ?? 0) / 100), Number(loanAmountField.value) ?? 0, ((Number(creditTermField.value) ?? 5) * 12)).toFixed(2);
   });
 
   creditTermField.addEventListener("input", (e) => {
-    annualMortgageRepayment.value = calcYearlyHypo(((Number(interestRateField.value) ?? 0) / 100), Number(loanAmountField.value) ?? 0, ((Number(creditTermField.value) ?? 5) * 12));
+    annualMortgageRepayment.value = calcYearlyHypo(((Number(interestRateField.value) ?? 0) / 100), Number(loanAmountField.value) ?? 0, ((Number(creditTermField.value) ?? 5) * 12)).toFixed(2);
   });
 
   tcoForm.addEventListener("submit", (e) => {
