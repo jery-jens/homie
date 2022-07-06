@@ -2,10 +2,6 @@ form {
     display: flex !important;
 }
 
-.switch {
-    transition: ease-in-out .2s;
-}
-
-.switch-circle {
+.switch, .switch-checkbox-label, .switch-circle {
     transition: ease-in-out .2s;
 }
