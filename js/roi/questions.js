@@ -1,3 +1,5 @@
+import { MoneyFormat } from "../func/index.js";
+
 document.addEventListener("DOMContentLoaded", () => {
   const purchasePrice = document.getElementById("purchase_price");
   const rentPrice = document.getElementById("rent_price");
@@ -47,9 +49,8 @@ document.addEventListener("DOMContentLoaded", () => {
    */
 
   const calcResults = () => {
-    brutoRent = Math.round(((rentPrice.value * 12) / (purchasePrice.value + oneTimeCosts.value)) * 100);
-    nettoRent = Math.round(((rentPrice.value * 12) - (amountTimeEmpty.value * rentPrice.value) - yearlyCosts.value - propertyTax.value - yearlyAmountInsurances.value) / (purchasePrice.value + oneTimeCosts.value) * 100);
-    console.log(brutoRent, nettoRent)
+    brutoRent = MoneyFormat(Math.round(((rentPrice.value * 12) / (purchasePrice.value + oneTimeCosts.value)) * 100));
+    nettoRent = MoneyFormat(Math.round(((rentPrice.value * 12) - (amountTimeEmpty.value * rentPrice.value) - yearlyCosts.value - propertyTax.value - yearlyAmountInsurances.value) / (purchasePrice.value + oneTimeCosts.value) * 100));
   };
 
   /**
@@ -57,13 +58,13 @@ document.addEventListener("DOMContentLoaded", () => {
    */
 
   purchasePrice.addEventListener("input", () => {
-    oneTimeCosts.value = Math.round((purchasePrice.value * (region.value === "flanders" ? 12.5 : 12)) / 100);
-    yearlyCosts.value = Math.round((purchasePrice.value / 100));
+    oneTimeCosts.value = MoneyFormat(Math.round((purchasePrice.value * (region.value === "flanders" ? 12.5 : 12)) / 100));
+    yearlyCosts.value = MoneyFormat(Math.round((purchasePrice.value / 100)));
     calcResults();
   });
 
   region.addEventListener("input", () => {
-    oneTimeCosts.value = Math.round((purchasePrice.value ?? 0 * region.value === "flanders" ? 12.5 : 12) / 100);
+    oneTimeCosts.value = MoneyFormat(Math.round((purchasePrice.value ?? 0 * region.value === "flanders" ? 12.5 : 12) / 100));
   });
 
   rentPrice.addEventListener("input", () => calcResults());
