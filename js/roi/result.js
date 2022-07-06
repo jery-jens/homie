@@ -15,11 +15,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const yearlyAmountInsurances = roiUrl.searchParams.get("yearly_amount_insurances") ?? 0;
   const brutRent = roiUrl.searchParams.get("bruto_rent") ?? 0;
   const netRent = roiUrl.searchParams.get("netto_rent") ?? 0;
+  const rentYear = rentPrice * 12;
 
   const net = document.querySelector(".net");
   const brut = document.querySelector(".brut");
 
-  const testNet = (((rentPrice * 12) - (amountTimeEmpty * rentPrice) - yearlyCosts - propertyTax - yearlyAmountInsurances) / (purchasePrice + (oneTimeCosts * (12.5/100)))) * 100;
+  const testNet = ((rentYear - (amountTimeEmpty * rentPrice) - propertyTax - yearlyCosts - yearlyAmountInsurances) / (purchasePrice + oneTimeCosts)) * 100;
+
   console.log(testNet);
 
   net.innerHTML = "€ " + netRent;
