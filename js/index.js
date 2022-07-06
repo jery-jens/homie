@@ -16,12 +16,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const selectorBtn = document.querySelector(".btn-tool-select");
     const selectorPopup = document.querySelector(".popup-toolselect");
+    const closeSelectorPopup = document.querySelector(".popup-tool-close");
 
-    console.log(selectorBtn, selectorPopup);
-
-    if (selectorBtn && selectorPopup) {
+    if (selectorBtn && selectorPopup && closeSelectorPopup) {
         selectorBtn.addEventListener("click", () => {
             selectorPopup.style.display = "block";
+        });
+
+        closeSelectorPopup.addEventListener("click", () => {
+            selectorPopup.style.display = "none";
         });
     };
 
