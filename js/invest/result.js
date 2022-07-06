@@ -526,6 +526,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         changeProgress(".avg-beginner", avgBeginner);
         changeProgress(".avg-expert", avgExpert);
+
+        if (avgExpert < avgBeginner) document.querySelector(".when-low-expertise").style.display = "flex";
     };
 
     // Default actions
