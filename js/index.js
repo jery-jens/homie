@@ -17,6 +17,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const selectorBtn = document.querySelector(".btn-tool-select");
     const selectorPopup = document.querySelector(".popup-toolselect");
 
+    console.log(selectorBtn, selectorPopup);
+
     if (selectorBtn && selectorPopup) {
         selectorBtn.addEventListener("click", () => {
             selectorPopup.style.display = "block";
@@ -30,8 +32,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const infoBtn = document.querySelector(".btn-info");
     const infoPopup = document.querySelector(".popup-tool-info");
     const closeInfoPopup = document.querySelector(".popup-header-close");
-
-    console.log(infoBtn, infoPopup, closeInfoPopup)
 
     if (infoBtn && infoPopup && closeInfoPopup) {
         infoBtn.addEventListener("click", () => {
