@@ -71,6 +71,8 @@ document.addEventListener("DOMContentLoaded", () => {
         if (financialState === "safe" && hasInvestments === "yes" && investmentsConcern === "none") riskTolerance = "high";
 
         document.querySelector(".risk-tolerance").innerHTML = riskTolerance === "low" ? "Lage risicotolerantie" : riskTolerance === "medium" ? "Gemiddelde risicotolerantie" : "Hoge risicotolerantie";
+
+        riskTolerance === "low" ? document.querySelector(".when-low-risk").style.display = "flex" : document.querySelector(".when-high-risk").style.display = "flex";
     };
 
     const typeEstateEvent = () => {
