@@ -150,7 +150,11 @@ document.addEventListener("DOMContentLoaded", () => {
         avgAppartment = (avgAppartmentRenters + avgAppartmentLoan + avgAppartmentTerm + avgAppartmentTime) / 4;
         avgHouse = (avgHouseRenters + avgHouseLoan + avgHouseTerm + avgHouseTime) / 4;
 
-        console.log(avgVacationHouse, avgStudentHouse, avgAssistantHouse, avgAppartment, avgHouse);
+        changeProgress(".avg-vacationhouse", avgVacationHouse);
+        changeProgress(".avg-studenthouse", avgStudentHouse);
+        changeProgress(".avg-assistanthouse", avgAssistantHouse);
+        changeProgress(".avg-appartment", avgAppartment);
+        changeProgress(".avg-house", avgHouse);
     };
 
     const ageBuildingEvent = () => {
