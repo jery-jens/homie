@@ -66,6 +66,10 @@ document.addEventListener("DOMContentLoaded", () => {
         if (creditRow) {
           if (item.classList.contains("credit-field")) {
             creditRow.classList.add("hidden");
+
+            creditFields.forEach((field) => {
+              field.style.display = "none";
+            });
           };
         };
       };
