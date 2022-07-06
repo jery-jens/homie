@@ -176,8 +176,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const canvasWrapper = document.querySelector(".type-house-charts");
         const avgOldCanvas = document.createElement("canvas");
-        avgOldCanvas.width = "200px";
-        avgOldCanvas.height = "200px";
+        avgOldCanvas.width = "200";
+        avgOldCanvas.height = "200";
 
         canvasWrapper.appendChild(avgOldCanvas);
         var circleProgressBar = new CircleProgressBar(avgOldCanvas, {
