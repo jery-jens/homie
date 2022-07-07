@@ -130,7 +130,6 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         sessionStorage.setItem("bp_states", JSON.stringify(selectedStates));
-        console.log(selectedEstates)
 
         if (selectedStates.length === 3) {
             oldTips.style.display = "flex";
@@ -138,7 +137,7 @@ document.addEventListener("DOMContentLoaded", () => {
         } else if (selectedStates.includes("new")) {
             oldTips.style.display = "none";
             newTips.style.display = "flex";
-        } else if (selectedEstates.includes("old")) {
+        } else if (selectedStates.includes("old")) {
             oldTips.style.display = "flex";
             newTips.style.display = "none";
         } else {
