@@ -39,9 +39,9 @@ document.addEventListener("DOMContentLoaded", () => {
         let reachable = true;
 
         const rules = [
-            ownAmountField.value > ((valueField.value) / 100 * 20),
-            loanField.value < ((valueField.value) / 100 * 80),
-            selectedRen > 4,
+            Number(ownAmountField.value) > (Number(valueField.value) / 100 * 20),
+            Number(loanField.value) < (Number(valueField.value) / 100 * 80),
+            Number(selectedRen) > 4,
         ];
 
         rules.forEach((rule) => {
@@ -86,8 +86,8 @@ document.addEventListener("DOMContentLoaded", () => {
         let reachable = true;
 
         const rules = [
-            ownAmountField.value > ((valueField.value) / 100 * 20),
-            loanField.value < ((valueField.value) / 100 * 80),
+            Number(ownAmountField.value) > (Number(valueField.value) / 100 * 20),
+            Number(loanField.value) < (Number(valueField.value) / 100 * 80),
             selectedRen > 4,
         ];
 
@@ -112,9 +112,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         sessionStorage.setItem("bp_values", JSON.stringify({
             "term": termField.value,
-            "value": valueField.value,
-            "loan": loanField.value,
-            "ownAmount": ownAmountField.value,
+            "value": Number(valueField.value),
+            "loan": Number(loanField.value),
+            "ownAmount": Number(ownAmountField.value),
             "selectedRen": selectedRen,
             "budget": Math.round(Number(ownAmountField.value) + Number(loanField.value))
         }));
