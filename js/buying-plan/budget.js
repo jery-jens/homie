@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
             Number(selectedRen) > 4,
         ];
 
-        console.log(rules)
+        console.log(selectedRen)
 
         rules.forEach((rule) => {
             if (!rule) reachable = false;
