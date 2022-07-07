@@ -130,6 +130,7 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         sessionStorage.setItem("bp_states", JSON.stringify(selectedStates));
+        console.log(selectedEstates)
 
         if (selectedStates.length === 3) {
             oldTips.style.display = "flex";
