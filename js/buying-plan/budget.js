@@ -41,10 +41,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const rules = [
             Number(ownAmountField.value) > (Number(valueField.value) / 100 * 20),
             Number(loanField.value) < (Number(valueField.value) / 100 * 80),
-            Number(selectedRen) > 4,
+            Number(selectedRen) < 4,
         ];
-
-        console.log(selectedRen)
 
         rules.forEach((rule) => {
             if (!rule) reachable = false;
