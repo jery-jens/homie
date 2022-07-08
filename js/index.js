@@ -33,19 +33,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const languageBtns = document.querySelectorAll(".language-btn");
 
-    languageBtns.forEach((langBtn, i) => {
+    if (window.location.pathname.split("/")[1] === "nl") {
+        languageBtns[0].classList.add("active");
+        languageBtns[1].classList.remove("active");
+    } else {
+        languageBtns[0].classList.remove("active");
+        languageBtns[1].classList.add("active");
+    };
+
+    languageBtns.forEach((langBtn) => {
         const lang = langBtn.getAttribute("data-lang");
 
         langBtn.addEventListener("click", () => {
             window.location = window.location.pathname.replace(window.location.pathname.split("/")[1] === "nl" ? "nl" : "fr", lang);
-
-            languageBtns.forEach((btn, j) => {
-                if (j === i) {
-                    btn.classList.add("active");
-                } else {
-                    btn.classList.remove("active");
-                };
-            });
         });
     });
 
