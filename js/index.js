@@ -28,6 +28,17 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     /**
+     * Language selector
+     */
+
+    const languageBtns = document.querySelectorAll(".language-btn");
+
+    languageBtns.forEach((langBtn) => {
+        const lang = langBtn.getAttribute("data-lang");
+        window.location = window.location.pathname.replace(window.location.pathname.split("/")[1] === "nl" ? "nl" : "fr", lang);
+    });
+
+    /**
      * Info show
      */
 
