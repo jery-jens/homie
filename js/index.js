@@ -33,10 +33,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const languageBtns = document.querySelectorAll(".language-btn");
 
-    languageBtns.forEach((langBtn) => {
+    languageBtns.forEach((langBtn, i) => {
         const lang = langBtn.getAttribute("data-lang");
-        console.log(lang, window.location.pathname.split("/")[1], window.location.pathname.replace(window.location.pathname.split("/")[1] === "nl" ? "nl" : "fr", lang));
-        // window.location = window.location.pathname.replace(window.location.pathname.split("/")[1] === "nl" ? "nl" : "fr", lang);
+
+        langBtn.addEventListener("click", () => {
+            window.location = window.location.pathname.replace(window.location.pathname.split("/")[1] === "nl" ? "nl" : "fr", lang);
+
+            languageBtns.forEach((btn, j) => {
+                if (j === i) {
+                    btn.classList.add("active");
+                } else {
+                    btn.classList.remove("active");
+                };
+            });
+        });
     });
 
     /**
