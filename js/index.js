@@ -35,7 +35,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     languageBtns.forEach((langBtn) => {
         const lang = langBtn.getAttribute("data-lang");
-        window.location = window.location.pathname.replace(window.location.pathname.split("/")[1] === "nl" ? "nl" : "fr", lang);
+        console.log(lang, window.location.pathname.split("/")[1], window.location.pathname.replace(window.location.pathname.split("/")[1] === "nl" ? "nl" : "fr", lang));
+        // window.location = window.location.pathname.replace(window.location.pathname.split("/")[1] === "nl" ? "nl" : "fr", lang);
     });
 
     /**
