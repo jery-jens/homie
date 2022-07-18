@@ -32,8 +32,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   net.innerHTML = String(netResult.toFixed(2) + "%").replace(".", ",");
   brut.innerHTML = String(brutResult.toFixed(2) + "%").replace(".", ",");
-  netPrice.innerHTML = String(netPrice.toFixed(2) + "%").replace(".", ",");
-  brutPrice.innerHTML = String(brutPrice.toFixed(2) + "%").replace(".", ",");
+  netPrice.innerHTML = String("€ " + netDigit);
+  brutPrice.innerHTML = String("€ " + brutDigit);
 
   /**
    * Get back
