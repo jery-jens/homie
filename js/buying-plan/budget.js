@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const rules = [
             Number(ownAmountField.value) > (Number(valueField.value) / 100 * 20),
             Number(loanField.value) < (Number(valueField.value) / 100 * 80),
-            selectedRen > 4,
+            selectedRen < 4,
         ];
 
         rules.forEach((rule) => {
