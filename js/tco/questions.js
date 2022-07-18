@@ -138,6 +138,7 @@ document.addEventListener("DOMContentLoaded", () => {
   annualMortgageRepayment.value = Number(500).toFixed(2);
   propertyTaxField.value = Number(850).toFixed(2);
   insurancesField.value = Number(250).toFixed(2);
+  interestRateField.step = "0.01";
 
   priceField.addEventListener("input", (e) => {
     const registrationTax = calcPercentage(e.target.value ?? 0, regionField.value === "flanders" ? 12 : 12.5);
