@@ -134,10 +134,10 @@ document.addEventListener("DOMContentLoaded", () => {
   propertyTaxField.style.backgroundColor = "transparent";
   insurancesField.style.backgroundColor = "transparent";
 
-  administrationCostsMortgage.value = 500;
-  annualMortgageRepayment.value = 500;
-  propertyTaxField.value = 850;
-  insurancesField.value = 250;
+  administrationCostsMortgage.value = 500.00;
+  annualMortgageRepayment.value = 500.00;
+  propertyTaxField.value = 850.00;
+  insurancesField.value = 250.00;
 
   priceField.addEventListener("input", (e) => {
     const registrationTax = calcPercentage(e.target.value ?? 0, regionField.value === "flanders" ? 12 : 12.5);
