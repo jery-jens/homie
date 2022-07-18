@@ -25,7 +25,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const netResult = ((rentYear - (amountTimeEmpty * rentPrice) - propertyTax - yearlyCosts - yearlyAmountInsurances) / (purchasePrice + oneTimeCosts)) * 100;
   const brutResult = ((rentYear) / (purchasePrice + oneTimeCosts)) * 100;
   const netDigit = MoneyFormat((purchasePrice + oneTimeCosts) / (netResult / 100));
-  console.log(netDigit);
+  const brutDigit = MoneyFormat((purchasePrice + oneTimeCosts) / (brutResult / 100));
+  console.log(netDigit, brutResult);
 
   net.innerHTML = String(netResult.toFixed(2) + "%").replace(".", ",");
   brut.innerHTML = String(brutResult.toFixed(2) + "%").replace(".", ",");
