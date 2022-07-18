@@ -53,13 +53,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const loanEvent = () => {
         // Calculate
         interestRateMonth = 1 + (interestRate.value !== NaN ? interestRate.value : 0) ** (1/12) - 1;
-        averageLoanAmount = ((1 - (1 + interestRateMonth) ** -Math.abs(loanTerm.value * 12)) / interestRateMonth) * monthlyPayment;
-        console.log(interestRate.value, averageLoanAmount ?? 0);
+        averageLoanAmount = interestRate.value !== 0 ? (((1 - (1 + interestRateMonth) ** -Math.abs(loanTerm.value * 12)) / interestRateMonth) * monthlyPayment) : 0;
 
         // Show values
         document.querySelectorAll(".choosen-term").forEach((element) => {
             element.innerHTML = loanTerm.value + " jaar";
         });
+        
         document.querySelector(".loan-amount").innerHTML = "€ " + MoneyFormat(averageLoanAmount ?? 0);
         document.querySelector(".monthly-loan-payment").innerHTML = "€ " + MoneyFormat(monthlyPayment);
     };
