@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
             element.innerHTML = loanTerm.value + " jaar";
         });
 
-        document.querySelector(".loan-amount").innerHTML = "€ " + MoneyFormat(averageLoanAmount);
+        document.querySelector(".loan-amount").innerHTML = "€ " + MoneyFormat(averageLoanAmount ?? 0);
         document.querySelector(".monthly-loan-payment").innerHTML = "€ " + MoneyFormat(monthlyPayment);
     };
 
