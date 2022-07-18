@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
     toolBtns.forEach((toolBtn) => {
         toolBtn.addEventListener("click", (e) => {
             e.preventDefault();
-            window.location = "/" + window.location.pathname.split("/")[1] + "/" + toolBtn.getAttribute("data-tool");
+            window.location = "/" + window.location.pathname.split("/")[1] + toolBtn.getAttribute("data-tool");
         });
     });
 
