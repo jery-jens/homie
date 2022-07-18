@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const roiUrl = new URL(window.location.href);
   purchasePrice.value = roiUrl.searchParams.get("purchase_price") ?? null;
-  rentPrice.value = roiUrl.searchParams.get("rent_price") ?? 0;
+  rentPrice.value = roiUrl.searchParams.get("rent_price") ?? null;
   region.value = roiUrl.searchParams.get("region") ?? "flanders";
   oneTimeCosts.value = roiUrl.searchParams.get("one_time_costs") ?? 0;
   amountTimeEmpty.value = roiUrl.searchParams.get("amount_time_empty") ?? .5;
