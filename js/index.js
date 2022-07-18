@@ -50,6 +50,19 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     /**
+     * Tool selector
+     */
+
+    const toolBtns = document.querySelectorAll(".tool-li");
+
+    toolBtns.forEach((toolBtn) => {
+        toolBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            window.location = window.location.pathname.split("/")[1] + "/" + toolBtn.getAttribute("data-tool");
+        });
+    });
+
+    /**
      * Info show
      */
 
