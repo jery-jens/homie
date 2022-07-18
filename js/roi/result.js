@@ -28,7 +28,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const brutResult = ((rentYear) / (purchasePrice + oneTimeCosts)) * 100;
   const netDigit = MoneyFormat((purchasePrice + oneTimeCosts) * (netResult / 100));
   const brutDigit = MoneyFormat((purchasePrice + oneTimeCosts) * (brutResult / 100));
-  console.log(netDigit, brutDigit);
 
   net.innerHTML = String(netResult.toFixed(2) + "%").replace(".", ",");
   brut.innerHTML = String(brutResult.toFixed(2) + "%").replace(".", ",");
