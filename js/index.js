@@ -45,7 +45,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const lang = langBtn.getAttribute("data-lang");
 
         langBtn.addEventListener("click", () => {
-            window.location = window.location.pathname.replace(window.location.pathname.split("/")[1] === "nl" ? "nl" : "fr", lang);
+            console.log(window.location)
+            // window.location = window.location.pathname.replace(window.location.pathname.split("/")[1] === "nl" ? "nl" : "fr", lang);
         });
     });
 
