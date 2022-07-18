@@ -169,7 +169,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   loanAmountField.addEventListener("input", (e) => {
     mortgageRegistrationField.value = (((Number(e.target.value) ?? 0 * 1.1) / 100) + ((Number(e.target.value) ?? 0 * 1.1) / (100 * 0.3)) + 160.5 + (Number(e.target.value) <= 272727) ? 220 : 950).toFixed(2);
-    console.log(e.target.value, ((((Number(e.target.value) ?? 0 )* 1.1) / 100) + (((Number(e.target.value) ?? 0) * 1.1) / (100 * 0.3)) + 160.5 + (Number(e.target.value) <= 272727) ? 220 : 950))
+
+    console.log(((Number(e.target.value ?? 0) * 1.1) / 100), ((Number(e.target.value ?? 0) * 1.1) / (100 * .3)));
+
     annualMortgageRepayment.value = calcYearlyHypo(((Number(interestRateField.value) ?? 0) / 100), Number(e.target.value) ?? 0, ((Number(creditTermField.value) ?? 5) * 12));
   });
 
