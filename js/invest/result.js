@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const loanEvent = () => {
         // Calculate
-        interestRateMonth = 1 + interestRate.value ** (1/12) - 1;
+        interestRateMonth = 1 + (interestRate.value ?? 0) ** (1/12) - 1;
         averageLoanAmount = ((1 - (1 + interestRateMonth) ** -Math.abs(loanTerm.value * 12)) / interestRateMonth) * monthlyPayment;
 
         // Show values
