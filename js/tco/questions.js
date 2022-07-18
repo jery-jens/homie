@@ -211,8 +211,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const commonCosts = document.getElementById("common_costs").value;
 
     const yearly = Math.round(Number(annualMortgageRepayment ?? 0) + Number(propertyTax ?? 0) + Number(insurances ?? 0) + Number(reparations ?? 0) + Number(management) + Number(commonCosts ?? 0));
-    console.log(yearly);
 
-    window.location = "/" + window.location.pathname.split("/")[1] + "/tco-calculator/result" + "?credit=" + Math.round(Number(mortgageRegistration ?? 0) + Number(notaryMortgage ?? 0) + Number(administrationCostsMortgage ?? 0)) + "&on_purchase=" + Math.round(isNewProject.value ? Number(btw) + Number(landRegistry) + Number(notaryFees) : Number(registrationTax) + Number(landRegistry) + Number(notaryFees)) + "&after_purchase=" + yearly;
+    window.location = "/" + window.location.pathname.split("/")[1] + "/tco-calculator/result" + "?credit=" + Math.round(Number(mortgageRegistration ?? 0) + Number(notaryMortgage ?? 0) + Number(administrationCostsMortgage ?? 0)) + "&on_purchase=" + Math.round(isNewProject.value ? Number(btw) + Number(landRegistry) + Number(notaryFees) : Number(registrationTax) + Number(landRegistry) + Number(notaryFees)) + "&after_purchase=" + Math.round(Number(energyRenovations ?? 0) + Number(otherRenovations ?? 0)) + "&yearly=" + yearly;
   });
 });
