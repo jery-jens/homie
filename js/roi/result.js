@@ -21,15 +21,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const net = document.querySelector(".net");
   const brut = document.querySelector(".brut");
+  const netPrice= document.querySelector(".net-digit");
+  const brutPrice = document.querySelector(".brut-digit");
 
   const netResult = ((rentYear - (amountTimeEmpty * rentPrice) - propertyTax - yearlyCosts - yearlyAmountInsurances) / (purchasePrice + oneTimeCosts)) * 100;
   const brutResult = ((rentYear) / (purchasePrice + oneTimeCosts)) * 100;
   const netDigit = MoneyFormat((purchasePrice + oneTimeCosts) * (netResult / 100));
   const brutDigit = MoneyFormat((purchasePrice + oneTimeCosts) * (brutResult / 100));
-  console.log(netDigit, brutResult);
+  console.log(netDigit, brutDigit);
 
   net.innerHTML = String(netResult.toFixed(2) + "%").replace(".", ",");
   brut.innerHTML = String(brutResult.toFixed(2) + "%").replace(".", ",");
+  netPrice.innerHTML = String(netPrice.toFixed(2) + "%").replace(".", ",");
+  brutPrice.innerHTML = String(brutPrice.toFixed(2) + "%").replace(".", ",");
 
   /**
    * Get back
