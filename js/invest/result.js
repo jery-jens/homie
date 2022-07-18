@@ -54,6 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Calculate
         interestRateMonth = 1 + (interestRate.value ?? 0) ** (1/12) - 1;
         averageLoanAmount = ((1 - (1 + interestRateMonth) ** -Math.abs(loanTerm.value * 12)) / interestRateMonth) * monthlyPayment;
+        console.log(averageLoanAmount, averageLoanAmount ?? 0);
 
         // Show values
         document.querySelectorAll(".choosen-term").forEach((element) => {
