@@ -157,7 +157,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     registrationTaxField.value = registrationTax.toFixed(2);
     btwField.value = btwNew.toFixed(2);
-    notaryFeesField.value = Math.round(Number(notaryFee.toFixed(2)) + Number(administrativeCosts.toFixed(2)));
+    notaryFeesField.value = Math.round(Number(notaryFee) + Number(administrativeCosts)).toFixed(2);
     landRegistryField.value = Number(240).toFixed(2);
     notaryMortgageField.value = notaryMortgage.toFixed(2);
   });
