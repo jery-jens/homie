@@ -53,8 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const loanEvent = () => {
         // Calculate
         interestRateMonth = 1 + (Number(interestRate.value) !== NaN ? Number(interestRate.value) : 0) ** (1/12) - 1;
-        averageLoanAmount = Number(interestRate.value) !== 0 ? (((1 - (1 + interestRateMonth) ** -Math.abs(loanTerm.value * 12)) / interestRateMonth) * monthlyPayment) : 0;
-        console.log(interestRate.value !== 0 ? 1 : 0, interestRate.value)
+        averageLoanAmount = ((1 - (1 + interestRateMonth) ** -Math.abs(loanTerm.value * 12)) / interestRateMonth) * monthlyPayment;
 
         // Show values
         document.querySelectorAll(".choosen-term").forEach((element) => {
