@@ -64,6 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   region.addEventListener("input", () => {
+    console.log(purchasePrice.value);
     oneTimeCosts.value = Math.round((purchasePrice.value ?? 0 * region.value === "flanders" ? 12.5 : 12) / 100);
     yearlyCosts.value = Math.round((purchasePrice.value / 100));
   });
