@@ -17,15 +17,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const totalYearly = document.querySelectorAll(".total-yearly-out");
 
   if (totalOut) {
-    totalOut.innerHTML = "€ " + Math.round(Number(credit) + Number(onPurchase) + Number(afterPurchase));
-    totalExpect.innerHTML = "€ " + afterPurchase;
-    totalPurchase.innerHTML = "€ " + onPurchase;
-    totalCredit.innerHTML = "€ " + credit;
+    totalOut.innerHTML = "€ " + Math.round(Number(credit) + Number(onPurchase) + Number(afterPurchase)).toFixed(2);
+    totalExpect.innerHTML = "€ " + Number(afterPurchase).toFixed(2);
+    totalPurchase.innerHTML = "€ " + Number(onPurchase).toFixed(2);
+    totalCredit.innerHTML = "€ " + Number(credit).toFixed(2);
   };
 
   if (yearly) {
     totalYearly.forEach((item) => {
-      item.innerHTML = "€ " + yearly;
+      item.innerHTML = "€ " + Number(yearly).toFixed(2);
     });
   };
 });
