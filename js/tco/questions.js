@@ -155,6 +155,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.target.value >= 351000 && e.target.value <= 400000) notaryFee = 3070;
     if (e.target.value > 400000) notaryFee = 3140;
 
+    console.log(notaryFee, administrativeCosts);
+
     registrationTaxField.value = registrationTax.toFixed(2);
     btwField.value = btwNew.toFixed(2);
     notaryFeesField.value = notaryFee.toFixed(2) + administrativeCosts.toFixed(2);
