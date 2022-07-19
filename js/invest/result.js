@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const otherLoans = Number(url.searchParams.get("other_loans") ?? 0);
     const carLoans = Number(url.searchParams.get("car_loans") ?? 0);
     const alimony = Number(url.searchParams.get("alimony") ?? 0);
-    const monthlyPayment = (netIncome - (otherLoans + carLoans + alimony)) / 100 * 40;
+    const monthlyPayment = Number((netIncome - (otherLoans + carLoans + alimony)) / 100 * 40);
     const financialState = url.searchParams.get("financial") ?? "safe";
     const hasInvestments = url.searchParams.get("investments") ?? "yes";
     const investmentsConcern = url.searchParams.get("investments_concern") ?? "yes";
@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Show values
         document.querySelectorAll(".choosen-term").forEach((element) => {
-            element.innerHTML = loanTerm.value + " jaar";
+            element.innerHTML = loanTerm.value + window.location.pathname.split("/")[1] === "nl" ? " jaar" : " ans";
         });
 
         document.querySelector(".loan-amount").innerHTML = "€ " + MoneyFormat(averageLoanAmount ?? 0);
@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (financialState === "hard" && investmentsConcern === "average") riskTolerance = "medium";
         if (financialState === "safe" && hasInvestments === "yes" && investmentsConcern === "none") riskTolerance = "high";
 
-        document.querySelector(".risk-tolerance").innerHTML = riskTolerance === "low" ? "Lage risicotolerantie" : riskTolerance === "medium" ? "Gemiddelde risicotolerantie" : "Hoge risicotolerantie";
+        window.location.pathname.split("/")[1] === "nl" ? (document.querySelector(".risk-tolerance").innerHTML = riskTolerance === "low" ? "Lage risicotolerantie" : riskTolerance === "medium" ? "Gemiddelde risicotolerantie" : "Hoge risicotolerantie") : document.querySelector(".risk-tolerance").innerHTML = riskTolerance === "low" ? "Faible tolérance au risque" : riskTolerance === "medium" ? "Tolérance moyenne au risque" : "Tolérance élevée au risque";
 
         riskTolerance === "low" ? document.querySelector(".when-low-risk").style.display = "flex" : document.querySelector(".when-high-risk").style.display = "flex";
     };
