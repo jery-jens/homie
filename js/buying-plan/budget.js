@@ -49,12 +49,12 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         if (!reachable) {
-            resultTitle.innerHTML = "niet haalbaar";
+            resultTitle.innerHTML = window.location.pathname.split("/")[1] === "nl" ? "niet haalbaar" : "pas faisable";
             resultTitle.classList.add("not-green");
             nonReachableTips.style.display = "flex";
             reachableTips.style.display = "none";
         } else {
-            resultTitle.innerHTML = "haalbaar";
+            resultTitle.innerHTML = window.location.pathname.split("/")[1] === "nl" ? "haalbaar" : "faisable";
             resultTitle.classList.remove("not-green");
             nonReachableTips.style.display = "none";
             reachableTips.style.display = "flex";
@@ -99,12 +99,12 @@ document.addEventListener("DOMContentLoaded", () => {
         form.setAttribute("style", "display: block !important");
 
         if (!reachable) {
-            resultTitle.innerHTML = "niet haalbaar";
+            resultTitle.innerHTML = window.location.pathname.split("/")[1] === "nl" ? "niet haalbaar" : "pas faisable";
             resultTitle.classList.add("not-green");
             nonReachableTips.style.display = "flex";
             reachableTips.style.display = "none";
         } else {
-            resultTitle.innerHTML = "haalbaar";
+            resultTitle.innerHTML = window.location.pathname.split("/")[1] === "nl" ? "haalbaar" : "faisable";
             resultTitle.classList.remove("not-green");
             nonReachableTips.style.display = "none";
             reachableTips.style.display = "flex";
