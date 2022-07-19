@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
         wrapper.classList.add("active");
         circle.classList.add("active");
         label.classList.add("active");
-        label.innerHTML = "Ja";
+        label.innerHTML = window.location.pathname.split("/")[1] === "nl" ? "Ja" : "Oui";
 
         if (formBlocks) {
           formBlocks.forEach((block) => {
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
         wrapper.classList.remove("active");
         circle.classList.remove("active");
         label.classList.remove("active");
-        label.innerHTML = "Nee";
+        label.innerHTML = window.location.pathname.split("/")[1] === "nl" ? "Nee" : "Non";
 
         if (formBlocks) {
           formBlocks.forEach((block) => {
