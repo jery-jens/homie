@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Show values
         document.querySelectorAll(".choosen-term").forEach((element) => {
-            element.innerHTML = loanTerm.value + window.location.pathname.split("/")[1] === "nl" ? " jaar" : " ans";
+            element.innerHTML = window.location.pathname.split("/")[1] === "nl" ? loanTerm.value + " jaar" : loanTerm.value + " ans";
         });
 
         document.querySelector(".loan-amount").innerHTML = "€ " + MoneyFormat(averageLoanAmount ?? 0);
