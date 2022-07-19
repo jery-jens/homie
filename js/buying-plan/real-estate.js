@@ -63,9 +63,11 @@ document.addEventListener("DOMContentLoaded", () => {
             });
 
             window.scrollTo({
-                top: resultSection.getBoundingClientRect().top + window.scrollY + 200,
+                top: resultSection.getBoundingClientRect().top + window.scrollY + 500,
                 behavior: "smooth",
             });
+
+            console.log(resultSection.getBoundingClientRect().top + window.scrollY + 500, resultSection.getBoundingClientRect().top, window.scrollY, 500)
 
             // Calculate reachability
             let reachability = true;
