@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
             });
 
             window.scrollTo({
-                top: resultSection.getBoundingClientRect().top + window.scrollY + 500,
+                top: resultSection.getBoundingClientRect().top + window.scrollY + 300,
                 behavior: "smooth",
             });
 
