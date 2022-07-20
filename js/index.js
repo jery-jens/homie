@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
-    console.log(window.location.pathname);
-    
+    if (window.location.pathname === "/") {
+        window.location = "/nl/invest-test/intro";
+    };
+
     /**
      * Header
      */
