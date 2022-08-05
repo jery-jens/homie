@@ -28,7 +28,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         mobileSelector.addEventListener("click", () => {
-            console.log("test")
             selectorPopup.style.display = "block";
         });
 
