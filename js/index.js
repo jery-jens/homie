@@ -20,9 +20,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const selectorBtn = document.querySelector(".btn-tool-select");
     const selectorPopup = document.querySelector(".popup-toolselect");
     const closeSelectorPopup = document.querySelector(".popup-tool-close");
+    const mobileSelector = document.querySelector(".mobile-tool-select");
 
     if (selectorBtn && selectorPopup && closeSelectorPopup) {
         selectorBtn.addEventListener("click", () => {
+            selectorPopup.style.display = "block";
+        });
+
+        mobileSelector.addEventListener("click", () => {
+            console.log("test")
             selectorPopup.style.display = "block";
         });
 
